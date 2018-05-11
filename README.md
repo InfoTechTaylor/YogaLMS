@@ -10,11 +10,11 @@ What things you need to install:
 * JDK 1.8 or higher
 * Maven 3.5.2 or higher
 
-### Installing
-
 ## Running the Tests
-
-## Deployment
+Using IntelliJ IDE, you can right click on the src > test > java folder 
+and select Run 'All Tests' from the drop down menu. Optionally, you can 
+also select each individual test file within the test directory, right 
+click and run all tests. 
 
 ## Built With
 * [Maven](https://maven.apache.org/) - Dependency Management
