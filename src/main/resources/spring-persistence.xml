@@ -21,4 +21,7 @@
     <bean id="logDao" class="yogaLMS.dao.LogDaoInMemoryImpl" />
     <bean id="logClassDao" class="yogaLMS.dao.LogClassDaoInMemoryImpl" />
 
+    <bean id="yogaClassService" class="yogaLMS.service.YogaClassServiceImpl"/>
+    <bean id="logService" class="yogaLMS.service.LogServiceImpl" />
+
 </beans>
