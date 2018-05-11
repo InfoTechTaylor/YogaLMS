@@ -66,7 +66,7 @@ public class TestHelperMethods {
         Log log = new Log();
         User student = createTestStudent();
         Program tt1 = createTestProgram();
-        log.setStudent(student);
+//        log.setStudent(student);
         log.setProgram(tt1);
         log.setStartDate(LocalDate.parse("2018-01-01"));
         log.setEndDate(null);

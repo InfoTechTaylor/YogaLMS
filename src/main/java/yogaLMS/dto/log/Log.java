@@ -9,7 +9,7 @@ import java.time.LocalDate;
 public class Log {
 
     private Long id;
-    private User student;
+//    private User student;
     private Program program;
     private LocalDate startDate;
     private LocalDate endDate;
@@ -22,13 +22,13 @@ public class Log {
         this.id = id;
     }
 
-    public User getStudent() {
-        return student;
-    }
-
-    public void setStudent(User student) {
-        this.student = student;
-    }
+//    public User getStudent() {
+//        return student;
+//    }
+//
+//    public void setStudent(User student) {
+//        this.student = student;
+//    }
 
     public Program getProgram() {
         return program;

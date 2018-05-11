@@ -43,7 +43,7 @@ public class LogServiceTest {
         User student = testHelperMethods.createTestStudent();
         Program tt1 = testHelperMethods.createTestProgram();
         Log log = new Log();
-        log.setStudent(student);
+//        log.setStudent(student);
         log.setProgram(tt1);
         log.setStartDate(LocalDate.parse("2018-01-01"));
         log.setEndDate(null); // indicating log is current, student has not completed program
@@ -53,9 +53,9 @@ public class LogServiceTest {
 
         // assert expected behavior
         assertNotNull(createdLog.getId()); // assert an id was assigned
-        assertEquals(student.getFirstName(), log.getStudent().getFirstName());
-        assertEquals(student.getLastName(), log.getStudent().getLastName());
-        assertEquals(student.getEmailAddress(), log.getStudent().getEmailAddress());
+//        assertEquals(student.getFirstName(), log.getStudent().getFirstName());
+//        assertEquals(student.getLastName(), log.getStudent().getLastName());
+//        assertEquals(student.getEmailAddress(), log.getStudent().getEmailAddress());
         assertEquals(tt1.getName(), log.getProgram().getName());
         assertEquals(tt1.getDescription(), log.getProgram().getDescription());
         assert tt1.getNumHours() == log.getProgram().getNumHours();
@@ -69,7 +69,7 @@ public class LogServiceTest {
         User student = testHelperMethods.createTestStudent();
         Program tt1 = testHelperMethods.createTestProgram();
         Log log = new Log();
-        log.setStudent(student);
+//        log.setStudent(student);
         log.setProgram(tt1);
         log.setStartDate(LocalDate.parse("2018-01-01"));
         log.setEndDate(null); // indicating log is current, student has not completed program
@@ -80,9 +80,9 @@ public class LogServiceTest {
 
         // assert expected behavior
         assertEquals(createdLog.getId(), readLog.getId());
-        assertEquals(student.getFirstName(), readLog.getStudent().getFirstName());
-        assertEquals(student.getLastName(), readLog.getStudent().getLastName());
-        assertEquals(student.getEmailAddress(), readLog.getStudent().getEmailAddress());
+//        assertEquals(student.getFirstName(), readLog.getStudent().getFirstName());
+//        assertEquals(student.getLastName(), readLog.getStudent().getLastName());
+//        assertEquals(student.getEmailAddress(), readLog.getStudent().getEmailAddress());
         assertEquals(tt1.getName(), readLog.getProgram().getName());
         assertEquals(tt1.getDescription(), readLog.getProgram().getDescription());
         assert tt1.getNumHours() == readLog.getProgram().getNumHours();
@@ -96,7 +96,7 @@ public class LogServiceTest {
         User student = testHelperMethods.createTestStudent();
         Program tt1 = testHelperMethods.createTestProgram();
         Log log = new Log();
-        log.setStudent(student);
+//        log.setStudent(student);
         log.setProgram(tt1);
         log.setStartDate(LocalDate.parse("2018-01-01"));
         log.setEndDate(null); // indicating log is current, student has not completed program
@@ -119,7 +119,7 @@ public class LogServiceTest {
         User student = testHelperMethods.createTestStudent();
         Program tt1 = testHelperMethods.createTestProgram();
         Log log = new Log();
-        log.setStudent(student);
+//        log.setStudent(student);
         log.setProgram(tt1);
         log.setStartDate(LocalDate.parse("2018-01-01"));
         log.setEndDate(null); // indicating log is current, student has not completed program
@@ -139,7 +139,7 @@ public class LogServiceTest {
             User student = testHelperMethods.createTestStudent();
             Program tt1 = testHelperMethods.createTestProgram();
             Log log = new Log();
-            log.setStudent(student);
+//            log.setStudent(student);
             log.setProgram(tt1);
             log.setStartDate(LocalDate.parse("2018-01-01"));
             log.setEndDate(null); // indicating log is current, student has not completed program
