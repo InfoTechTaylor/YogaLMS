@@ -23,5 +23,6 @@
 
     <bean id="yogaClassService" class="yogaLMS.service.YogaClassServiceImpl"/>
     <bean id="logService" class="yogaLMS.service.LogServiceImpl" />
+    <bean id="logClassService" class="yogaLMS.service.LogClassServiceImpl" />
 
 </beans>
