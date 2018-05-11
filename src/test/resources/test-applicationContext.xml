@@ -19,6 +19,8 @@
     <bean id="logDao" class="yogaLMS.dao.LogDaoInMemoryImpl" />
     <bean id="logClassDao" class="yogaLMS.dao.LogClassDaoInMemoryImpl" />
 
+    <bean id="YogaClassService" class="yogaLMS.service.YogaClassServiceImpl"/>
+
     <bean id="testHelperMethods" class="testUtils.TestHelperMethods" />
 
 </beans>

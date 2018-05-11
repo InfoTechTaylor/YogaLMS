@@ -16,4 +16,9 @@
 
     <!-- Bean definitions go here -->
     <bean id="controller" class="yogaLMS.controller.LogController"/>
+
+    <bean id="yogaClassDaoInMemory" class="yogaLMS.dao.YogaClassDaoInMemoryImpl"/>
+    <bean id="logDao" class="yogaLMS.dao.LogDaoInMemoryImpl" />
+    <bean id="logClassDao" class="yogaLMS.dao.LogClassDaoInMemoryImpl" />
+
 </beans>
