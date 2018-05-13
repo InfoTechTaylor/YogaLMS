@@ -11,6 +11,8 @@ public abstract class Program {
     private LocalDate startDate;
     private LocalDate endDate;
 
+    public abstract String generateRequirementsList();
+
     public Long getId() {
         return id;
     }
