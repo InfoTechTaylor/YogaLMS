@@ -17,7 +17,7 @@
     <!-- Bean definitions go here -->
     <bean id="yogaClassDaoInMemory" class="yogaLMS.dao.YogaClassDaoInMemoryImpl"/>
     <bean id="logDao" class="yogaLMS.dao.LogDaoInMemoryImpl" />
-    <bean id="logClassDao" class="yogaLMS.dao.LogClassDaoInMemoryImpl" />
+    <bean id="logClassDao" class="yogaLMS.dao.LogClassDaoFileImpl" />
 
     <bean id="yogaClassService" class="yogaLMS.service.YogaClassServiceImpl"/>
     <bean id="logService" class="yogaLMS.service.LogServiceImpl" />
