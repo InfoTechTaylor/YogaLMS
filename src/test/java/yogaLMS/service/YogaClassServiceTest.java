@@ -7,6 +7,8 @@ import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import testUtils.TestHelperMethods;
+import yogaLMS.dto.log.Log;
+import yogaLMS.dto.log.LogClass;
 import yogaLMS.dto.log.YogaClass;
 
 import javax.inject.Inject;
@@ -23,6 +25,9 @@ public class YogaClassServiceTest {
 
     @Inject
     YogaClassService yogaClassService;
+
+    @Inject
+    LogClassService logClassService;
 
     @Inject
     private TestHelperMethods testHelperMethods;
@@ -149,5 +154,36 @@ public class YogaClassServiceTest {
 
         // assert expected behavior
         assertEquals(7, allYogaLifeClasses.size());
+    }
+
+    @Test
+    public void testRetrieveAllByLogId() {
+        // arrange test data
+        Log log1 = testHelperMethods.createTestLog();
+        Log log2 = testHelperMethods.createTestLog();
+        for (int i=0; i<7; i++){
+            YogaClass yogaClass = testHelperMethods.createTestYogaClassAndSave();
+            LogClass logClass = new LogClass();
+            logClass.setLog(log1);
+            logClass.setYogaClass(yogaClass);
+            logClassService.create(logClass);
+        }
+
+        for (int i=0; i<5; i++){
+            YogaClass yogaClass = testHelperMethods.createTestYogaClassAndSave();
+            LogClass logClass = new LogClass();
+            logClass.setLog(log2);
+            logClass.setYogaClass(yogaClass);
+            logClassService.create(logClass);
+        }
+
+
+        // act, call method to test
+        List<YogaClass> allYogaClassesByLog1 = yogaClassService.retrieveAllByLogId(log1.getId());
+        List<YogaClass> allYogaClassesByLog2 = yogaClassService.retrieveAllByLogId(log2.getId());
+
+        // assert expected behavior
+        assertEquals(7, allYogaClassesByLog1.size());
+        assertEquals(5, allYogaClassesByLog2.size());
     }
 }
