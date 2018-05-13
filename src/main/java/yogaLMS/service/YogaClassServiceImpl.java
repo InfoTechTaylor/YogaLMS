@@ -1,14 +1,17 @@
 package yogaLMS.service;
 
 import yogaLMS.dao.YogaClassDao;
+import yogaLMS.dto.log.LogClass;
 import yogaLMS.dto.log.YogaClass;
 
 import javax.inject.Inject;
+import java.util.ArrayList;
 import java.util.List;
 
 public class YogaClassServiceImpl implements YogaClassService {
 
     YogaClassDao yogaClassDao;
+    LogClassService logClassService;
 
     @Inject
     public YogaClassServiceImpl(YogaClassDao yogaClassDao){
@@ -43,5 +46,20 @@ public class YogaClassServiceImpl implements YogaClassService {
     @Override
     public List<YogaClass> retrieveAllByStudio(String studio) {
         return yogaClassDao.retrieveAllByStudio(studio);
+    }
+
+    @Override
+    public List<YogaClass> retrieveAllByLogId(Long id) {
+        List<LogClass> allLogClasses = logClassService.retrieveAll();
+        List<YogaClass> allYogaClassesInLog = new ArrayList<>();
+
+        for(LogClass currentLogClass : allLogClasses){
+            if(currentLogClass.getLog().getId() == id){
+                // if LogClass with id exists, look up YogaClass and add to allYogaClassesInLog list
+                YogaClass yogaClass = this.read(id);
+                allYogaClassesInLog.add(yogaClass);
+            }
+        }
+        return allYogaClassesInLog;
     }
 }

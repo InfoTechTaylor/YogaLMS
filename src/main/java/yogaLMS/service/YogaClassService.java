@@ -17,4 +17,6 @@ public interface YogaClassService {
     public List<YogaClass> retrieveAll();
 
     public List<YogaClass> retrieveAllByStudio(String studio);
+
+    public List<YogaClass> retrieveAllByLogId(Long id);
 }
