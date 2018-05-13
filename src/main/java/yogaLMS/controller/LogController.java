@@ -40,7 +40,7 @@ public class LogController {
      * precondition: student exists in system, student has log in system, student is enrolled in program "has a" program
      */
     private void studentAddsClassToLog(){
-        // run setup to fulfill preconditions
+        // setup program to fulfill precondition
         Program tt2 = new TT2Program();
         tt2.setName("TT2");
         tt2.setDescription("300 hour teacher training that is taken after completion of TT1 program.");
@@ -49,12 +49,14 @@ public class LogController {
         tt2.setEndDate(LocalDate.parse("2018-01-01"));
         System.out.println("Adding class for " + tt2.getName() + " program...");
 
+        // setup log to fulfill precondition
         Log log = new Log();
         log.setProgram(tt2);
         log.setStartDate(LocalDate.parse("2016-07-01"));
         log.setEndDate(null);
         Log createdLog = logService.create(log);
 
+        // setup student to fulfill precondition
         User student = new StudentUser();
         student.setFirstName("Taylor");
         student.setLastName("Lapointe");
@@ -69,8 +71,10 @@ public class LogController {
         yogaClass.setDate(LocalDate.parse("2018-05-10"));
         yogaClass.setHours(1d);
         yogaClass.setTeacherName("Julie Rost");
+        // once the above is retrieved from UI, it will be passed as object to the YogaClassService
         yogaClassService.create(yogaClass);
 
+        // some illustrative output
         System.out.println("Class created: ");
         System.out.println("Class Name: " + yogaClass.getClassName());
         System.out.println("Studio: " + yogaClass.getStudioName());
@@ -78,11 +82,13 @@ public class LogController {
         System.out.println("Hours: " + yogaClass.getHours());
         System.out.println("Teacher: " + yogaClass.getTeacherName());
 
-        // add yoga class to student log
+        // associate yoga class to particular student's log
         LogClass logClass = new LogClass();
         logClass.setLog(log);
         logClass.setYogaClass(yogaClass);
         logClassService.create(logClass);
+
+        // some illustrative output
         System.out.println("Class added to " + student.getFirstName() + " " + student.getLastName() + "'s log.");
 
     }
