@@ -14,8 +14,9 @@ public class YogaClassServiceImpl implements YogaClassService {
     LogClassService logClassService;
 
     @Inject
-    public YogaClassServiceImpl(YogaClassDao yogaClassDao){
+    public YogaClassServiceImpl(YogaClassDao yogaClassDao, LogClassService logClassSerivce){
         this.yogaClassDao = yogaClassDao;
+        this.logClassService = logClassSerivce;
     }
 
     @Override
