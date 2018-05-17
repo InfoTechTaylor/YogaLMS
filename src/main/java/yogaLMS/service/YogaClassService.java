@@ -1,6 +1,6 @@
 package yogaLMS.service;
 
-import yogaLMS.dto.log.YogaClass;
+import yogaLMS.dto.yogaclass.YogaClass;
 
 import java.util.List;
 

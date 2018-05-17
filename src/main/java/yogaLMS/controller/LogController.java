@@ -1,12 +1,9 @@
 package yogaLMS.controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import yogaLMS.dto.log.Log;
-import yogaLMS.dto.log.LogClass;
-import yogaLMS.dto.log.YogaClass;
+import yogaLMS.dto.yogaclass.LogClass;
+import yogaLMS.dto.yogaclass.YogaClass;
 import yogaLMS.dto.program.Program;
 import yogaLMS.dto.program.TT2Program;
 import yogaLMS.dto.user.StudentUser;

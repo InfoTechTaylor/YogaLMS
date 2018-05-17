@@ -1,4 +1,6 @@
-package yogaLMS.dto.log;
+package yogaLMS.dto.yogaclass;
+
+import yogaLMS.dto.log.Log;
 
 public class LogClass {
 

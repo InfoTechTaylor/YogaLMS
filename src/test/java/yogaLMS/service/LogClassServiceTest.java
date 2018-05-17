@@ -8,8 +8,8 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import testUtils.TestHelperMethods;
 import yogaLMS.dto.log.Log;
-import yogaLMS.dto.log.LogClass;
-import yogaLMS.dto.log.YogaClass;
+import yogaLMS.dto.yogaclass.LogClass;
+import yogaLMS.dto.yogaclass.YogaClass;
 
 import javax.inject.Inject;
 import java.util.List;

@@ -15,9 +15,9 @@
        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.2.xsd"> 
 
     <!-- Bean definitions go here -->
-    <bean id="yogaClassDaoInMemory" class="yogaLMS.dao.YogaClassDaoInMemoryImpl"/>
-    <bean id="logDao" class="yogaLMS.dao.LogDaoInMemoryImpl" />
-    <bean id="logClassDao" class="yogaLMS.dao.LogClassDaoInMemoryImpl" />
+    <bean id="yogaClassDaoInMemory" class="yogaLMS.dao.yogaclass.YogaClassDaoInMemoryImpl"/>
+    <bean id="logDao" class="yogaLMS.dao.log.LogDaoInMemoryImpl" />
+    <bean id="logClassDao" class="yogaLMS.dao.yogaclass.LogClassDaoInMemoryImpl" />
 
     <bean id="yogaClassService" class="yogaLMS.service.YogaClassServiceImpl"/>
     <bean id="logService" class="yogaLMS.service.LogServiceImpl" />

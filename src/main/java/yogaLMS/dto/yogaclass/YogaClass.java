@@ -1,4 +1,4 @@
-package yogaLMS.dto.log;
+package yogaLMS.dto.yogaclass;
 
 import java.time.LocalDate;
 

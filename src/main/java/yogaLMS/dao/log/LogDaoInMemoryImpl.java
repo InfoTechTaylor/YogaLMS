@@ -1,4 +1,4 @@
-package yogaLMS.dao;
+package yogaLMS.dao.log;
 
 import yogaLMS.dto.log.Log;
 

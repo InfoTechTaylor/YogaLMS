@@ -1,7 +1,7 @@
 package yogaLMS.service;
 
-import yogaLMS.dao.LogClassDao;
-import yogaLMS.dto.log.LogClass;
+import yogaLMS.dao.yogaclass.LogClassDao;
+import yogaLMS.dto.yogaclass.LogClass;
 
 import javax.inject.Inject;
 import java.util.List;

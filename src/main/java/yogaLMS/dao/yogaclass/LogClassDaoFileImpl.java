@@ -1,8 +1,8 @@
-package yogaLMS.dao;
+package yogaLMS.dao.yogaclass;
 
 import yogaLMS.dto.log.Log;
-import yogaLMS.dto.log.LogClass;
-import yogaLMS.dto.log.YogaClass;
+import yogaLMS.dto.yogaclass.LogClass;
+import yogaLMS.dto.yogaclass.YogaClass;
 
 import java.io.*;
 import java.util.*;

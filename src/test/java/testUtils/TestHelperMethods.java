@@ -1,13 +1,13 @@
 package testUtils;
 
-import yogaLMS.dao.LogDao;
-import yogaLMS.dao.YogaClassDao;
+import yogaLMS.dao.log.LogDao;
+import yogaLMS.dao.yogaclass.YogaClassDao;
 import yogaLMS.dto.log.Log;
 import yogaLMS.dto.program.Program;
 import yogaLMS.dto.program.TT1Program;
 import yogaLMS.dto.user.StudentUser;
 import yogaLMS.dto.user.User;
-import yogaLMS.dto.log.YogaClass;
+import yogaLMS.dto.yogaclass.YogaClass;
 
 import javax.inject.Inject;
 import java.time.LocalDate;

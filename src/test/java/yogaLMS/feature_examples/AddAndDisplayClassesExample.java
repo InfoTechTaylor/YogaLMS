@@ -7,12 +7,10 @@ import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import testUtils.TestHelperMethods;
-import yogaLMS.dao.LogDao;
 import yogaLMS.dto.log.Log;
-import yogaLMS.dto.log.LogClass;
-import yogaLMS.dto.log.YogaClass;
+import yogaLMS.dto.yogaclass.LogClass;
+import yogaLMS.dto.yogaclass.YogaClass;
 import yogaLMS.dto.program.Program;
-import yogaLMS.dto.program.TT2Program;
 import yogaLMS.dto.user.StudentUser;
 import yogaLMS.dto.user.User;
 import yogaLMS.service.LogClassService;
@@ -20,7 +18,6 @@ import yogaLMS.service.LogService;
 import yogaLMS.service.YogaClassService;
 
 import javax.inject.Inject;
-import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
