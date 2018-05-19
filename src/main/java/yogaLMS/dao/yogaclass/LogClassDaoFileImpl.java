@@ -52,7 +52,7 @@ public class LogClassDaoFileImpl implements LogClassDao {
     }
 
     private void loadLogClassObjects(){
-
+        // load LogClass information from file to Map
         Scanner scanner = null;
 
         try {
@@ -61,7 +61,6 @@ public class LogClassDaoFileImpl implements LogClassDao {
         } catch (IOException e) {
             e.printStackTrace(); // TODO : add app PersistenceException and throw on this method, handle in controller
         }
-
         // currentLine holds the most recent line read from the file
         String currentLine;
 
@@ -89,20 +88,15 @@ public class LogClassDaoFileImpl implements LogClassDao {
                 Log log = new Log();
                 log.setId(Long.parseLong(currentTokens[2]));
                 currentLogClass.setLog(log);
-
                 // put currentItem into the map
                 logClassMap.put(currentLogClass.getId(), currentLogClass);
             }
-            // close scanner
             scanner.close();
         }
-
-
     }
 
     private void writeLogClassObjects(){
         PrintWriter out = null;
-
         try {
             out = new PrintWriter(new FileWriter(LOG_CLASS_FILE));
         } catch (IOException e) {

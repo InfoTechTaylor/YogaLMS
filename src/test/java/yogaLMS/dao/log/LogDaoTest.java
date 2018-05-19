@@ -1,4 +1,4 @@
-package yogaLMS.dao;
+package yogaLMS.dao.log;
 
 import org.junit.Before;
 import org.junit.Test;
