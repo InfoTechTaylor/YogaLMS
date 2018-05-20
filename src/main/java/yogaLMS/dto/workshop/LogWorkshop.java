@@ -1,9 +1,11 @@
 package yogaLMS.dto.workshop;
 
+import yogaLMS.dto.log.Log;
+
 public class LogWorkshop {
     private Long id;
-    private Long logId;
-    private Long workshopId;
+    private Log log;
+    private Workshop workshop;
 
     public Long getId() {
         return id;
@@ -13,19 +15,19 @@ public class LogWorkshop {
         this.id = id;
     }
 
-    public Long getLogId() {
-        return logId;
+    public Log getLog() {
+        return log;
     }
 
-    public void setLogId(Long logId) {
-        this.logId = logId;
+    public void setLog(Log log) {
+        this.log = log;
     }
 
-    public Long getWorkshopId() {
-        return workshopId;
+    public Workshop getWorkshop() {
+        return workshop;
     }
 
-    public void setWorkshopId(Long workshopId) {
-        this.workshopId = workshopId;
+    public void setWorkshop(Workshop workshop) {
+        this.workshop = workshop;
     }
 }
