@@ -18,10 +18,15 @@
     <bean id="yogaClassDaoInMemory" class="yogaLMS.dao.yogaclass.YogaClassDaoInMemoryImpl"/>
     <bean id="logDao" class="yogaLMS.dao.log.LogDaoInMemoryImpl" />
     <bean id="logClassDao" class="yogaLMS.dao.yogaclass.LogClassDaoInMemoryImpl" />
+    <bean id="workshopDao" class="yogaLMS.dao.workshop.WorkshopDaoFileImpl" >
+        <constructor-arg value="workshops.txt" /></bean>
 
     <bean id="yogaClassService" class="yogaLMS.service.YogaClassServiceImpl"/>
     <bean id="logService" class="yogaLMS.service.LogServiceImpl" />
     <bean id="logClassService" class="yogaLMS.service.LogClassServiceImpl" />
+    <bean id="workshopService" class="yogaLMS.service.WorkshopServiceFileImpl">
+        <constructor-arg ref="workshopDao" />
+    </bean>
 
     <bean id="testHelperMethods" class="testUtils.TestHelperMethods" />
 

@@ -15,20 +15,24 @@
        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.2.xsd"> 
 
     <!-- Bean definitions go here -->
+    <!--dao beans-->
     <bean id="yogaClassDaoInMemory" class="yogaLMS.dao.yogaclass.YogaClassDaoInMemoryImpl"/>
     <bean id="logDao" class="yogaLMS.dao.log.LogDaoInMemoryImpl" />
     <bean id="logClassDao" class="yogaLMS.dao.yogaclass.LogClassDaoInMemoryImpl" />
+    <bean id="workshopDao" class="yogaLMS.dao.workshop.WorkshopDaoFileImpl" >
+        <constructor-arg value="workshops.txt" /></bean>
 
+    <!--service beans-->
     <bean id="yogaClassService" class="yogaLMS.service.YogaClassServiceImpl">
-            <constructor-arg ref="yogaClassDaoInMemory"/>
-    </bean>
+            <constructor-arg ref="yogaClassDaoInMemory"/></bean>
     <bean id="logService" class="yogaLMS.service.LogServiceImpl" >
-        <constructor-arg ref="logDao" />
+        <constructor-arg ref="logDao" /></bean>
+    <bean id="logClassService" class="yogaLMS.service.LogClassServiceImpl" >
+        <constructor-arg ref="logClassDao" /></bean>
+    <bean id="workshopService" class="yogaLMS.service.WorkshopServiceFileImpl">
+        <constructor-arg ref="workshopDao" />
     </bean>
 
-    <bean id="logClassService" class="yogaLMS.service.LogClassServiceImpl" >
-        <constructor-arg ref="logClassDao" />
-    </bean>
 
     <bean id="logController" class="yogaLMS.controller.LogController">
         <constructor-arg ref="logClassService" />

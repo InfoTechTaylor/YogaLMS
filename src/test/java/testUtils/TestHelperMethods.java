@@ -7,6 +7,7 @@ import yogaLMS.dto.program.Program;
 import yogaLMS.dto.program.TT1Program;
 import yogaLMS.dto.user.StudentUser;
 import yogaLMS.dto.user.User;
+import yogaLMS.dto.workshop.Workshop;
 import yogaLMS.dto.yogaclass.YogaClass;
 
 import javax.inject.Inject;
@@ -72,6 +73,15 @@ public class TestHelperMethods {
         log.setEndDate(null);
         logDao.create(log);
         return log;
+    }
+
+    public Workshop createTestWorkshop(){
+        Workshop workshop = new Workshop();
+        workshop.setName("Art of Teaching Vinyasa");
+        workshop.setTeacherName("Julie Rost");
+        workshop.setNumHours(2d);
+        workshop.setDate(LocalDate.parse("2018-05-10"));
+        return workshop;
     }
 
 }
