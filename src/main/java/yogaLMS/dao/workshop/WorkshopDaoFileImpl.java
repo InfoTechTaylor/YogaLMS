@@ -72,7 +72,7 @@ public class WorkshopDaoFileImpl implements WorkshopDao {
             }
             out.close();
         } catch (IOException e) {
-            throw new YogaLMSPersistenceException("Error writing to file.");
+            throw new YogaLMSPersistenceException("Error saving data to storage.");
         }
     }
 
@@ -84,12 +84,10 @@ public class WorkshopDaoFileImpl implements WorkshopDao {
             scanner = new Scanner(new BufferedReader(new FileReader(filename)));
             // currentLine holds the most recent line read from the file
             String currentLine;
-
             // currentToken holds each of the parts of the currentLine after it has been split on our STRING_DELIMITER
             String[] currentTokens;
 
             // Go through each line in filename, decoding each line into a workshop object
-            // process while we have more lines in the file
             if(scanner != null){
                 while(scanner.hasNextLine()) {
                     // get the next line in the file
@@ -105,16 +103,13 @@ public class WorkshopDaoFileImpl implements WorkshopDao {
                     currentWorkshop.setName(currentTokens[2]);
                     currentWorkshop.setTeacherName(currentTokens[3]);
                     currentWorkshop.setNumHours(Double.parseDouble(currentTokens[4]));
-
                     // put currentWorkshop into the map
                     workshopMap.put(currentWorkshop.getId(), currentWorkshop);
                 }
                 scanner.close();
             }
-
         } catch (IOException e) {
-            throw new YogaLMSPersistenceException("Error reading from file.");
+            throw new YogaLMSPersistenceException("Error reading data from storage.");
         }
-
     }
 }
