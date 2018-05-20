@@ -8,9 +8,9 @@ import yogaLMS.dto.program.Program;
 import yogaLMS.dto.program.TT2Program;
 import yogaLMS.dto.user.StudentUser;
 import yogaLMS.dto.user.User;
-import yogaLMS.service.LogClassService;
-import yogaLMS.service.LogService;
-import yogaLMS.service.YogaClassService;
+import yogaLMS.service.yogaclass.LogClassService;
+import yogaLMS.service.log.LogService;
+import yogaLMS.service.yogaclass.YogaClassService;
 
 import java.time.LocalDate;
 

@@ -1,4 +1,4 @@
-package yogaLMS.service;
+package yogaLMS.service.log;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -10,6 +10,7 @@ import testUtils.TestHelperMethods;
 import yogaLMS.dto.log.Log;
 import yogaLMS.dto.program.Program;
 import yogaLMS.dto.user.User;
+import yogaLMS.service.log.LogService;
 
 import javax.inject.Inject;
 import java.time.LocalDate;

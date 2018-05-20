@@ -1,12 +1,15 @@
 package testUtils;
 
+import yogaLMS.dao.YogaLMSPersistenceException;
 import yogaLMS.dao.log.LogDao;
+import yogaLMS.dao.workshop.WorkshopDao;
 import yogaLMS.dao.yogaclass.YogaClassDao;
 import yogaLMS.dto.log.Log;
 import yogaLMS.dto.program.Program;
 import yogaLMS.dto.program.TT1Program;
 import yogaLMS.dto.user.StudentUser;
 import yogaLMS.dto.user.User;
+import yogaLMS.dto.workshop.LogWorkshop;
 import yogaLMS.dto.workshop.Workshop;
 import yogaLMS.dto.yogaclass.YogaClass;
 
@@ -17,11 +20,13 @@ public class TestHelperMethods {
 
     private YogaClassDao yogaClassDao;
     private LogDao logDao;
+    private WorkshopDao workshopDao;
 
     @Inject
-    public TestHelperMethods(YogaClassDao yogaClassDao, LogDao logDao){
+    public TestHelperMethods(YogaClassDao yogaClassDao, LogDao logDao, WorkshopDao workshopDao){
         this.yogaClassDao = yogaClassDao;
         this.logDao = logDao;
+        this.workshopDao = workshopDao;
     }
 
     public YogaClass createTestYogaClass(){
@@ -82,6 +87,21 @@ public class TestHelperMethods {
         workshop.setNumHours(2d);
         workshop.setDate(LocalDate.parse("2018-05-10"));
         return workshop;
+    }
+
+    public LogWorkshop createTestLogWorkshop(){
+        Workshop workshop = createTestWorkshop();
+
+        try {
+            workshop = workshopDao.create(workshop);
+        } catch (YogaLMSPersistenceException e) {
+            e.printStackTrace();
+        }
+        Log log = createTestLog();
+        LogWorkshop logWorkshop = new LogWorkshop();
+        logWorkshop.setWorkshop(workshop);
+        logWorkshop.setLog(log);
+        return logWorkshop;
     }
 
 }

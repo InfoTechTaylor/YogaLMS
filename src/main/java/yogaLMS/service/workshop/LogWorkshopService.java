@@ -1,11 +1,11 @@
-package yogaLMS.dao.workshop;
+package yogaLMS.service.workshop;
 
 import yogaLMS.dao.YogaLMSPersistenceException;
 import yogaLMS.dto.workshop.LogWorkshop;
 
 import java.util.List;
 
-public interface LogWorkshopDao {
+public interface LogWorkshopService {
 
     public LogWorkshop create(LogWorkshop logWorkshop) throws YogaLMSPersistenceException;
 

@@ -13,9 +13,9 @@ import yogaLMS.dto.user.StudentUser;
 import yogaLMS.dto.user.User;
 import yogaLMS.dto.yogaclass.LogClass;
 import yogaLMS.dto.yogaclass.YogaClass;
-import yogaLMS.service.LogClassService;
-import yogaLMS.service.LogService;
-import yogaLMS.service.YogaClassService;
+import yogaLMS.service.yogaclass.LogClassService;
+import yogaLMS.service.log.LogService;
+import yogaLMS.service.yogaclass.YogaClassService;
 
 import javax.inject.Inject;
 import java.time.format.DateTimeFormatter;

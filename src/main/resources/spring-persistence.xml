@@ -21,16 +21,22 @@
     <bean id="logClassDao" class="yogaLMS.dao.yogaclass.LogClassDaoInMemoryImpl" />
     <bean id="workshopDao" class="yogaLMS.dao.workshop.WorkshopDaoFileImpl" >
         <constructor-arg value="workshops.txt" /></bean>
+    <bean id="logWorkshopDao" class="yogaLMS.dao.workshop.LogWorkshopDaoFileImpl">
+        <constructor-arg value="logWorkshops.txt" />
+    </bean>
 
     <!--service beans-->
-    <bean id="yogaClassService" class="yogaLMS.service.YogaClassServiceImpl">
+    <bean id="yogaClassService" class="yogaLMS.service.yogaclass.YogaClassServiceImpl">
             <constructor-arg ref="yogaClassDaoInMemory"/></bean>
-    <bean id="logService" class="yogaLMS.service.LogServiceImpl" >
+    <bean id="logService" class="yogaLMS.service.log.LogServiceImpl" >
         <constructor-arg ref="logDao" /></bean>
-    <bean id="logClassService" class="yogaLMS.service.LogClassServiceImpl" >
+    <bean id="logClassService" class="yogaLMS.service.yogaclass.LogClassServiceImpl" >
         <constructor-arg ref="logClassDao" /></bean>
-    <bean id="workshopService" class="yogaLMS.service.WorkshopServiceFileImpl">
+    <bean id="workshopService" class="yogaLMS.service.workshop.WorkshopServiceFileImpl">
         <constructor-arg ref="workshopDao" />
+    </bean>
+    <bean id="logWorkshopService" class="yogaLMS.service.workshop.LogWorkshopServiceFileImpl">
+        <constructor-arg ref="logWorkshopDao"/>
     </bean>
 
 

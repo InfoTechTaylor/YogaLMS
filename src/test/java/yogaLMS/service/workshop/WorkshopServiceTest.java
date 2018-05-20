@@ -1,4 +1,4 @@
-package yogaLMS.service;
+package yogaLMS.service.workshop;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -9,6 +9,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import testUtils.TestHelperMethods;
 import yogaLMS.dao.YogaLMSPersistenceException;
 import yogaLMS.dto.workshop.Workshop;
+import yogaLMS.service.workshop.WorkshopService;
 
 import javax.inject.Inject;
 import java.time.LocalDate;

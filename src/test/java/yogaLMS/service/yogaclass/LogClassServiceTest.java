@@ -1,4 +1,4 @@
-package yogaLMS.service;
+package yogaLMS.service.yogaclass;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -10,6 +10,7 @@ import testUtils.TestHelperMethods;
 import yogaLMS.dto.log.Log;
 import yogaLMS.dto.yogaclass.LogClass;
 import yogaLMS.dto.yogaclass.YogaClass;
+import yogaLMS.service.yogaclass.LogClassService;
 
 import javax.inject.Inject;
 import java.util.List;

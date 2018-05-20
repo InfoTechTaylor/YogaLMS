@@ -59,7 +59,7 @@ public class WorkshopDaoFileImpl implements WorkshopDao {
         PrintWriter out = null;
         try {
             out = new PrintWriter(new FileWriter(filename));
-            // write out the LogClass objects to the file
+            // write out the objects to the file
             List<Workshop> workshops = this.retrieveAll();
             for(Workshop currentWorkshop : workshops){
                 // write the workshop object to the file as a line

@@ -1,4 +1,4 @@
-package yogaLMS.service;
+package yogaLMS.service.workshop;
 
 import yogaLMS.dao.YogaLMSPersistenceException;
 import yogaLMS.dao.workshop.WorkshopDao;
