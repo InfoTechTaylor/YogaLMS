@@ -1,4 +1,4 @@
-package yogaLMS.service;
+package yogaLMS.service.yogaclass;
 
 import yogaLMS.dao.yogaclass.LogClassDao;
 import yogaLMS.dto.yogaclass.LogClass;
