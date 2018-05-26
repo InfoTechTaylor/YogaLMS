@@ -1,8 +1,10 @@
 package yogaLMS.dto.workshop;
 
+import yogaLMS.dto.Dto;
+
 import java.time.LocalDate;
 
-public class Workshop {
+public class Workshop extends Dto {
     private Long id;
     private LocalDate date;
     private String name;

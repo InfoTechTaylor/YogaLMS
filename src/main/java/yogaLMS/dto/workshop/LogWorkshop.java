@@ -1,8 +1,9 @@
 package yogaLMS.dto.workshop;
 
+import yogaLMS.dto.Dto;
 import yogaLMS.dto.log.Log;
 
-public class LogWorkshop {
+public class LogWorkshop extends Dto {
     private Long id;
     private Log log;
     private Workshop workshop;

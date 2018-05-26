@@ -1,6 +1,8 @@
 package yogaLMS.dto.user;
 
-public abstract class User {
+import yogaLMS.dto.Dto;
+
+public abstract class User extends Dto {
 
     private Long id;
     private String firstName;
@@ -37,5 +39,15 @@ public abstract class User {
 
     public void setEmailAddress(String emailAddress) {
         this.emailAddress = emailAddress;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", emailAddress='" + emailAddress + '\'' +
+                '}';
     }
 }

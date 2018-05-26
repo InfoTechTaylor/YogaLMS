@@ -1,15 +1,15 @@
 package yogaLMS.dto.log;
 
+import yogaLMS.dto.Dto;
 import yogaLMS.dto.program.Program;
 import yogaLMS.dto.user.StudentUser;
 import yogaLMS.dto.user.User;
 
 import java.time.LocalDate;
 
-public class Log {
+public class Log extends Dto {
 
     private Long id;
-//    private User student;
     private Program program;
     private LocalDate startDate;
     private LocalDate endDate;
@@ -21,14 +21,6 @@ public class Log {
     public void setId(Long id) {
         this.id = id;
     }
-
-//    public User getStudent() {
-//        return student;
-//    }
-//
-//    public void setStudent(User student) {
-//        this.student = student;
-//    }
 
     public Program getProgram() {
         return program;

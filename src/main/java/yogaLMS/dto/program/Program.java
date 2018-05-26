@@ -1,8 +1,10 @@
 package yogaLMS.dto.program;
 
+import yogaLMS.dto.Dto;
+
 import java.time.LocalDate;
 
-public abstract class Program {
+public abstract class Program extends Dto {
 
     private Long id;
     private String name;
