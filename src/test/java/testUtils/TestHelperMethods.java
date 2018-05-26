@@ -54,11 +54,28 @@ public class TestHelperMethods {
         User newStudent = new StudentUser();
         newStudent.setFirstName("Taylor");
         newStudent.setLastName("Lapointe");
-        newStudent.setEmailAddress("test@gmail.com");
+        newStudent.setEmailAddress("taylor@gmail.com");
+        return newStudent;
+    }
+    public User createTestFaculty(){
+        User newStudent = new StudentUser();
+        newStudent.setFirstName("Julie");
+        newStudent.setLastName("Rost");
+        newStudent.setEmailAddress("julie@gmail.com");
         return newStudent;
     }
 
     public Program createTestProgram(){
+        Program newProgram = new TT1Program();
+        newProgram.setName("TT1");
+        newProgram.setDescription("200 hour teacher training");
+        newProgram.setNumHours(200d);
+        newProgram.setStartDate(LocalDate.parse("2000-01-01"));
+        newProgram.setEndDate(null); // indicating this is an active program
+        return newProgram;
+    }
+
+    public Program createTestProgramAndSave(){
         Program newProgram = new TT1Program();
         newProgram.setName("TT1");
         newProgram.setDescription("200 hour teacher training");
