@@ -2,6 +2,8 @@ package yogaLMS.dao;
 
 import yogaLMS.dto.Dto;
 
+import java.util.List;
+
 /**
  * This interface is setup for the generic CRUD methods
  * for DAO classes. T will be the type of object that
@@ -36,4 +38,10 @@ public interface GenericDao<T extends Dto> {
      * @param persistentEntity of type T
      */
     void delete(T persistentEntity);
+
+
+    /**
+     * Return all entities of type T in a List
+     */
+    List<T> retrieveAll();
 }

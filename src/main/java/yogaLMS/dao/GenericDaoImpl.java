@@ -2,7 +2,9 @@ package yogaLMS.dao;
 
 import yogaLMS.dto.Dto;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class GenericDaoImpl<T extends Dto> implements GenericDao<T> {
@@ -35,5 +37,10 @@ public class GenericDaoImpl<T extends Dto> implements GenericDao<T> {
     @Override
     public T read(Long id) {
         return map.get(id);
+    }
+
+    @Override
+    public List<T> retrieveAll() {
+        return new ArrayList<>(map.values());
     }
 }
