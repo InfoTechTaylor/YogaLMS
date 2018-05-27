@@ -44,4 +44,6 @@ public interface GenericDao<T extends Dto> {
      * Return all entities of type T in a List
      */
     List<T> retrieveAll();
+
+
 }
