@@ -1,18 +1,10 @@
 package yogaLMS.dao.yogaclass;
 
+import yogaLMS.dao.GenericDao;
 import yogaLMS.dto.yogaclass.LogClass;
 
 import java.util.List;
 
-public interface LogClassDao {
+public interface LogClassDao extends GenericDao<LogClass> {
 
-    public LogClass create(LogClass logClass);
-
-    public LogClass read(Long id);
-
-    public void update(LogClass logClass);
-
-    public void delete(LogClass logClass);
-
-    public List<LogClass> retrieveAll();
 }

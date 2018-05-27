@@ -1,5 +1,6 @@
 package yogaLMS.dao.yogaclass;
 
+import yogaLMS.dao.GenericDaoFileImpl;
 import yogaLMS.dto.log.Log;
 import yogaLMS.dto.yogaclass.LogClass;
 import yogaLMS.dto.yogaclass.YogaClass;
@@ -7,51 +8,14 @@ import yogaLMS.dto.yogaclass.YogaClass;
 import java.io.*;
 import java.util.*;
 
-public class LogClassDaoFileImpl implements LogClassDao {
+public class LogClassDaoFileImpl extends GenericDaoFileImpl<LogClass> implements LogClassDao {
 
-    private Map<Long, LogClass> logClassMap = new HashMap<>();
-    private Long currentHighestId = 0L;
+    private Map<Long, LogClass> map = super.getMap();
     private final String LOG_CLASS_FILE = "logClassFile.txt";
     private final String STRING_DELIMITER = "::";
 
     @Override
-    public LogClass create(LogClass logClass) {
-        logClass.setId(getNextId());
-        logClassMap.put(logClass.getId(), logClass);
-        writeLogClassObjects(); // unique to file implementation
-        return logClass;
-    }
-
-    private Long getNextId(){
-        currentHighestId++;
-        return currentHighestId;
-    }
-
-    @Override
-    public LogClass read(Long id) {
-        loadLogClassObjects(); // unique to file implementation
-        return logClassMap.get(id);
-    }
-
-    @Override
-    public void update(LogClass logClass) {
-        logClassMap.replace(logClass.getId(), logClass);
-        writeLogClassObjects();
-    }
-
-    @Override
-    public void delete(LogClass logClass) {
-        logClassMap.remove(logClass.getId());
-        writeLogClassObjects();
-    }
-
-    @Override
-    public List<LogClass> retrieveAll() {
-        loadLogClassObjects();
-        return new ArrayList<>(logClassMap.values());
-    }
-
-    private void loadLogClassObjects(){
+    public void loadEntities() {
         // load LogClass information from file to Map
         Scanner scanner = null;
 
@@ -89,13 +53,14 @@ public class LogClassDaoFileImpl implements LogClassDao {
                 log.setId(Long.parseLong(currentTokens[2]));
                 currentLogClass.setLog(log);
                 // put currentItem into the map
-                logClassMap.put(currentLogClass.getId(), currentLogClass);
+                this.map.put(currentLogClass.getId(), currentLogClass);
             }
             scanner.close();
         }
     }
 
-    private void writeLogClassObjects(){
+    @Override
+    public void writeEntities() {
         PrintWriter out = null;
         try {
             out = new PrintWriter(new FileWriter(LOG_CLASS_FILE));
@@ -109,8 +74,8 @@ public class LogClassDaoFileImpl implements LogClassDao {
             // write the LogClass object to the file as a line
             // TODO refactor to avoid potential null pointer exception, this should work when implementing persistence exception and throwing in the catch clause
             out.println(logClass.getId() + STRING_DELIMITER
-                + logClass.getYogaClass().getId() + STRING_DELIMITER
-                + logClass.getLog().getId() + STRING_DELIMITER);
+                    + logClass.getYogaClass().getId() + STRING_DELIMITER
+                    + logClass.getLog().getId() + STRING_DELIMITER);
 
             // force PrinteWriter to write line to the file
             out.flush();
