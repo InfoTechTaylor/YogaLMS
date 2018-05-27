@@ -1,5 +1,6 @@
 package yogaLMS.dao.workshop;
 
+import yogaLMS.dao.GenericDaoFileImpl;
 import yogaLMS.dao.YogaLMSPersistenceException;
 import yogaLMS.dto.log.Log;
 import yogaLMS.dto.workshop.LogWorkshop;
@@ -9,11 +10,10 @@ import java.io.*;
 import java.time.LocalDate;
 import java.util.*;
 
-public class LogWorkshopDaoFileImpl implements LogWorkshopDao {
+public class LogWorkshopDaoFileImpl extends GenericDaoFileImpl<LogWorkshop> implements LogWorkshopDao {
 
 
-    private Map<Long, LogWorkshop> logWorkshopMap = new HashMap<>();
-    private Long currentHighestId = 0L;
+    private Map<Long, LogWorkshop> logWorkshopMap = super.getMap();
     private String filename;
     private final String STRING_DELIMITER = "::";
 
@@ -22,62 +22,7 @@ public class LogWorkshopDaoFileImpl implements LogWorkshopDao {
     }
 
     @Override
-    public LogWorkshop create(LogWorkshop logWorkshop) throws YogaLMSPersistenceException {
-        logWorkshop.setId(getNextId());
-        logWorkshopMap.put(logWorkshop.getId(), logWorkshop);
-        writeWorkshops();
-        return logWorkshop;
-    }
-
-    private Long getNextId(){
-        currentHighestId++;
-        return currentHighestId;
-    }
-
-    @Override
-    public LogWorkshop read(Long id) throws YogaLMSPersistenceException {
-        loadWorkshops();
-        return logWorkshopMap.get(id);
-    }
-
-    @Override
-    public void update(LogWorkshop logWorkshop) throws YogaLMSPersistenceException {
-        logWorkshopMap.replace(logWorkshop.getId(), logWorkshop);
-        writeWorkshops();
-    }
-
-    @Override
-    public void delete(LogWorkshop logWorkshop) throws YogaLMSPersistenceException {
-        logWorkshopMap.remove(logWorkshop.getId());
-        writeWorkshops();
-    }
-
-    @Override
-    public List<LogWorkshop> retrieveAll() throws YogaLMSPersistenceException {
-        loadWorkshops();
-        return new ArrayList<>(logWorkshopMap.values());
-    }
-
-    private void writeWorkshops() throws YogaLMSPersistenceException {
-        PrintWriter out = null;
-        try {
-            out = new PrintWriter(new FileWriter(filename));
-            // write out the LogWorkshop objects to the file
-            List<LogWorkshop> logWorkshops = this.retrieveAll();
-            for(LogWorkshop currentLogWorkshop : logWorkshops){
-                // write the object to the file as a line
-                out.println(currentLogWorkshop.getId() + STRING_DELIMITER
-                        + currentLogWorkshop.getLog().getId() + STRING_DELIMITER
-                        + currentLogWorkshop.getWorkshop().getId());
-                out.flush(); // force PrinteWriter to write line to the file
-            }
-            out.close();
-        } catch (IOException e) {
-            throw new YogaLMSPersistenceException("Error writing to file.");
-        }
-    }
-
-    private void loadWorkshops() throws YogaLMSPersistenceException {
+    public void loadEntities() throws YogaLMSPersistenceException {
         // load information from file to Map
         Scanner scanner = null;
         try {
@@ -120,6 +65,25 @@ public class LogWorkshopDaoFileImpl implements LogWorkshopDao {
         } catch (IOException e) {
             throw new YogaLMSPersistenceException("Error reading from file.");
         }
+    }
 
+    @Override
+    public void writeEntities() throws YogaLMSPersistenceException {
+        PrintWriter out = null;
+        try {
+            out = new PrintWriter(new FileWriter(filename));
+            // write out the LogWorkshop objects to the file
+            List<LogWorkshop> logWorkshops = this.retrieveAll();
+            for(LogWorkshop currentLogWorkshop : logWorkshops){
+                // write the object to the file as a line
+                out.println(currentLogWorkshop.getId() + STRING_DELIMITER
+                        + currentLogWorkshop.getLog().getId() + STRING_DELIMITER
+                        + currentLogWorkshop.getWorkshop().getId());
+                out.flush(); // force PrinteWriter to write line to the file
+            }
+            out.close();
+        } catch (IOException e) {
+            throw new YogaLMSPersistenceException("Error writing to file.");
+        }
     }
 }

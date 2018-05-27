@@ -1,22 +1,23 @@
 package yogaLMS.service.yogaclass;
 
+import yogaLMS.dao.YogaLMSPersistenceException;
 import yogaLMS.dto.yogaclass.YogaClass;
 
 import java.util.List;
 
 public interface YogaClassService {
 
-    public YogaClass create(YogaClass yogaClass);
+    public YogaClass create(YogaClass yogaClass) throws YogaLMSPersistenceException;
 
-    public YogaClass read(Long id);
+    public YogaClass read(Long id) throws YogaLMSPersistenceException;
 
-    public void update(YogaClass yogaClass);
+    public void update(YogaClass yogaClass) throws YogaLMSPersistenceException;
 
-    public void delete(YogaClass yogaClass);
+    public void delete(YogaClass yogaClass) throws YogaLMSPersistenceException;
 
-    public List<YogaClass> retrieveAll();
+    public List<YogaClass> retrieveAll() throws YogaLMSPersistenceException;
 
     public List<YogaClass> retrieveAllByStudio(String studio);
 
-    public List<YogaClass> retrieveAllByLogId(Long id);
+    public List<YogaClass> retrieveAllByLogId(Long id) throws YogaLMSPersistenceException;
 }

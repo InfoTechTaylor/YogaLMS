@@ -1,5 +1,6 @@
 package yogaLMS.service.yogaclass;
 
+import yogaLMS.dao.YogaLMSPersistenceException;
 import yogaLMS.dao.yogaclass.YogaClassDao;
 import yogaLMS.dto.yogaclass.LogClass;
 import yogaLMS.dto.yogaclass.YogaClass;
@@ -20,27 +21,27 @@ public class YogaClassServiceImpl implements YogaClassService {
     }
 
     @Override
-    public YogaClass create(YogaClass yogaClass) {
+    public YogaClass create(YogaClass yogaClass) throws YogaLMSPersistenceException {
         return yogaClassDao.create(yogaClass);
     }
 
     @Override
-    public YogaClass read(Long id) {
+    public YogaClass read(Long id) throws YogaLMSPersistenceException {
         return yogaClassDao.read(id);
     }
 
     @Override
-    public void update(YogaClass yogaClass) {
+    public void update(YogaClass yogaClass) throws YogaLMSPersistenceException {
         yogaClassDao.update(yogaClass);
     }
 
     @Override
-    public void delete(YogaClass yogaClass) {
+    public void delete(YogaClass yogaClass) throws YogaLMSPersistenceException {
         yogaClassDao.delete(yogaClass);
     }
 
     @Override
-    public List<YogaClass> retrieveAll() {
+    public List<YogaClass> retrieveAll() throws YogaLMSPersistenceException {
         return yogaClassDao.retrieveAll();
     }
 
@@ -50,7 +51,7 @@ public class YogaClassServiceImpl implements YogaClassService {
     }
 
     @Override
-    public List<YogaClass> retrieveAllByLogId(Long id) {
+    public List<YogaClass> retrieveAllByLogId(Long id) throws YogaLMSPersistenceException {
         List<LogClass> allLogClasses = logClassService.retrieveAll();
         List<YogaClass> allYogaClassesInLog = new ArrayList<>();
 

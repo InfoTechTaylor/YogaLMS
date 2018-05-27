@@ -15,7 +15,7 @@ public interface GenericDao<T extends Dto> {
      * @param newEntity of Type T
      * @return newEntity of Type T
      */
-    T create(T newEntity);
+    T create(T newEntity) throws YogaLMSPersistenceException;
 
 
     /**
@@ -23,27 +23,27 @@ public interface GenericDao<T extends Dto> {
      * @param id of object to be read
      * @return object requested from file
      */
-    T read(Long id);
+    T read(Long id) throws YogaLMSPersistenceException;
 
 
     /**
      * Save changes made to a persistent object/entity
      * @param updatedEntity of type T
      */
-    void update(T updatedEntity);
+    void update(T updatedEntity) throws YogaLMSPersistenceException;
 
 
     /**
      * Delete persisted entity
      * @param persistentEntity of type T
      */
-    void delete(T persistentEntity);
+    void delete(T persistentEntity) throws YogaLMSPersistenceException;
 
 
     /**
      * Return all entities of type T in a List
      */
-    List<T> retrieveAll();
+    List<T> retrieveAll() throws YogaLMSPersistenceException;
 
 
 }

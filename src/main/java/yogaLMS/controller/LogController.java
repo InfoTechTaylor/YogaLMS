@@ -1,6 +1,7 @@
 package yogaLMS.controller;
 
 import org.springframework.stereotype.Controller;
+import yogaLMS.dao.YogaLMSPersistenceException;
 import yogaLMS.dto.log.Log;
 import yogaLMS.dto.yogaclass.LogClass;
 import yogaLMS.dto.yogaclass.YogaClass;
@@ -51,7 +52,12 @@ public class LogController {
         log.setProgram(tt2);
         log.setStartDate(LocalDate.parse("2016-07-01"));
         log.setEndDate(null);
-        Log createdLog = logService.create(log);
+        Log createdLog = null;
+        try {
+            createdLog = logService.create(log);
+        } catch (YogaLMSPersistenceException e) {
+            e.printStackTrace();
+        }
 
         // setup student to fulfill precondition
         User student = new StudentUser();
@@ -69,7 +75,11 @@ public class LogController {
         yogaClass.setHours(1d);
         yogaClass.setTeacherName("Julie Rost");
         // once the above is retrieved from UI, it will be passed as object to the YogaClassService
-        yogaClassService.create(yogaClass);
+        try {
+            yogaClassService.create(yogaClass);
+        } catch (YogaLMSPersistenceException e) {
+            e.printStackTrace();
+        }
 
         // some illustrative output
         System.out.println("Class created: ");
@@ -83,7 +93,11 @@ public class LogController {
         LogClass logClass = new LogClass();
         logClass.setLog(log);
         logClass.setYogaClass(yogaClass);
-        logClassService.create(logClass);
+        try {
+            logClassService.create(logClass);
+        } catch (YogaLMSPersistenceException e) {
+            e.printStackTrace();
+        }
 
         // some illustrative output
         System.out.println("Class added to " + student.getFirstName() + " " + student.getLastName() + "'s log.");

@@ -17,7 +17,7 @@ public abstract class GenericDaoFileImpl<T extends Dto> implements GenericDao<T>
     }
 
     @Override
-    public T create(T newEntity) {
+    public T create(T newEntity) throws YogaLMSPersistenceException {
         newEntity.setId(getNextId());
         this.map.put(newEntity.getId(), newEntity);
         writeEntities();
@@ -30,30 +30,30 @@ public abstract class GenericDaoFileImpl<T extends Dto> implements GenericDao<T>
     }
 
     @Override
-    public void update(T updatedEntity) {
+    public void update(T updatedEntity) throws YogaLMSPersistenceException {
         map.replace(updatedEntity.getId(), updatedEntity);
         writeEntities();
     }
 
     @Override
-    public void delete(T persistentEntity) {
+    public void delete(T persistentEntity) throws YogaLMSPersistenceException {
         map.remove(persistentEntity.getId());
         writeEntities();
     }
 
     @Override
-    public T read(Long id) {
+    public T read(Long id) throws YogaLMSPersistenceException {
         loadEntities();
         return map.get(id);
     }
 
     @Override
-    public List<T> retrieveAll() {
+    public List<T> retrieveAll() throws YogaLMSPersistenceException {
         loadEntities();
         return new ArrayList<>(map.values());
     }
 
-    public abstract void loadEntities();
+    public abstract void loadEntities() throws YogaLMSPersistenceException;
 
-    public abstract void writeEntities();
+    public abstract void writeEntities() throws YogaLMSPersistenceException;
 }
