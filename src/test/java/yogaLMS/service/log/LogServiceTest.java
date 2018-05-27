@@ -7,6 +7,7 @@ import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import testUtils.TestHelperMethods;
+import yogaLMS.dao.YogaLMSPersistenceException;
 import yogaLMS.dto.log.Log;
 import yogaLMS.dto.program.Program;
 import yogaLMS.dto.user.User;
@@ -39,7 +40,7 @@ public class LogServiceTest {
     }
 
     @Test
-    public void testCreateLog() {
+    public void testCreateLog() throws YogaLMSPersistenceException {
         // arrange test data
         User student = testHelperMethods.createTestStudent();
         Program tt1 = testHelperMethods.createTestProgram();
@@ -65,7 +66,7 @@ public class LogServiceTest {
     }
 
     @Test
-    public void testReadLog() {
+    public void testReadLog() throws YogaLMSPersistenceException {
         // arrange test data
         User student = testHelperMethods.createTestStudent();
         Program tt1 = testHelperMethods.createTestProgram();
@@ -92,7 +93,7 @@ public class LogServiceTest {
     }
 
     @Test
-    public void testUpdateLog() {
+    public void testUpdateLog() throws YogaLMSPersistenceException {
         // arrange test data
         User student = testHelperMethods.createTestStudent();
         Program tt1 = testHelperMethods.createTestProgram();
@@ -115,7 +116,7 @@ public class LogServiceTest {
     }
 
     @Test
-    public void testDeleteLog() {
+    public void testDeleteLog() throws YogaLMSPersistenceException {
         // arrange test data
         User student = testHelperMethods.createTestStudent();
         Program tt1 = testHelperMethods.createTestProgram();
@@ -134,7 +135,7 @@ public class LogServiceTest {
     }
 
     @Test
-    public void testRetrieveAllLogs() {
+    public void testRetrieveAllLogs() throws YogaLMSPersistenceException {
         // arrange test data
         for(int i=0; i < 15; i++){
             User student = testHelperMethods.createTestStudent();

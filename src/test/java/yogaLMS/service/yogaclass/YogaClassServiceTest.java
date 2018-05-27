@@ -7,6 +7,7 @@ import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import testUtils.TestHelperMethods;
+import yogaLMS.dao.YogaLMSPersistenceException;
 import yogaLMS.dto.log.Log;
 import yogaLMS.dto.yogaclass.LogClass;
 import yogaLMS.dto.yogaclass.YogaClass;
@@ -44,7 +45,7 @@ public class YogaClassServiceTest {
     }
 
     @Test
-    public void testCreateYogaClassService() {
+    public void testCreateYogaClassService() throws YogaLMSPersistenceException {
         // arrange test data
         YogaClass testYogaClass = new YogaClass();
         testYogaClass.setClassName("Yoga I");
@@ -66,7 +67,7 @@ public class YogaClassServiceTest {
     }
 
     @Test
-    public void testReadYogaClassService() {
+    public void testReadYogaClassService() throws YogaLMSPersistenceException {
         // arrange test data
         YogaClass testYogaClass = testHelperMethods.createTestYogaClass(); // same yoga class as above but use test methods for cleaner code
         YogaClass createdYogaClass = yogaClassService.create(testYogaClass);
@@ -84,7 +85,7 @@ public class YogaClassServiceTest {
     }
 
     @Test
-    public void TestUpdateYogaClassService() {
+    public void TestUpdateYogaClassService() throws YogaLMSPersistenceException {
         // arrange test data
         YogaClass testYogaClass = testHelperMethods.createTestYogaClass(); // same yoga class as above but use test methods for cleaner code
         YogaClass createdYogaClass = yogaClassService.create(testYogaClass);
@@ -110,7 +111,7 @@ public class YogaClassServiceTest {
     }
 
     @Test
-    public void testDeleteYogaClassService() {
+    public void testDeleteYogaClassService() throws YogaLMSPersistenceException {
         // arrange test data
         YogaClass testYogaClass = testHelperMethods.createTestYogaClass(); // same yoga class as above but use test methods for cleaner code
         YogaClass createdYogaClass = yogaClassService.create(testYogaClass);
@@ -123,7 +124,7 @@ public class YogaClassServiceTest {
     }
 
     @Test
-    public void testRetrieveAllYogaClassService() {
+    public void testRetrieveAllYogaClassService() throws YogaLMSPersistenceException {
         // arrange test data
         for(int i = 0; i < 15; i++){
             yogaClassService.create(testHelperMethods.createTestYogaClass());
@@ -137,7 +138,7 @@ public class YogaClassServiceTest {
     }
 
     @Test
-    public void testRetrieveAllByStudioYogaClassService() {
+    public void testRetrieveAllByStudioYogaClassService() throws YogaLMSPersistenceException {
         // arrange test data
         for(int i = 0; i < 7; i++){
             // create 7 classes with "YogaLife" as studio which is what is set in the testYogaClass helper method
@@ -159,7 +160,7 @@ public class YogaClassServiceTest {
     }
 
     @Test
-    public void testRetrieveAllByLogId() {
+    public void testRetrieveAllByLogId() throws YogaLMSPersistenceException {
         // arrange test data
         Log log1 = testHelperMethods.createTestLog();
         Log log2 = testHelperMethods.createTestLog();

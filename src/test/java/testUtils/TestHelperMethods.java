@@ -39,7 +39,7 @@ public class TestHelperMethods {
         return newYogaClass;
     }
 
-    public YogaClass createTestYogaClassAndSave(){
+    public YogaClass createTestYogaClassAndSave() throws YogaLMSPersistenceException {
         YogaClass newYogaClass = new YogaClass();
         newYogaClass.setClassName("Yoga I");
         newYogaClass.setDate(LocalDate.parse("2018-05-08"));
@@ -85,7 +85,7 @@ public class TestHelperMethods {
         return newProgram;
     }
 
-    public Log createTestLog(){
+    public Log createTestLog() throws YogaLMSPersistenceException {
         Log log = new Log();
         User student = createTestStudent();
         Program tt1 = createTestProgram();
@@ -106,7 +106,7 @@ public class TestHelperMethods {
         return workshop;
     }
 
-    public LogWorkshop createTestLogWorkshop(){
+    public LogWorkshop createTestLogWorkshop() throws YogaLMSPersistenceException {
         Workshop workshop = createTestWorkshop();
 
         try {

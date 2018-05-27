@@ -7,6 +7,7 @@ import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import testUtils.TestHelperMethods;
+import yogaLMS.dao.YogaLMSPersistenceException;
 import yogaLMS.dao.yogaclass.LogClassDao;
 import yogaLMS.dto.log.Log;
 import yogaLMS.dto.yogaclass.LogClass;
@@ -39,7 +40,7 @@ public class LogClassDaoTest {
     }
 
     @Test
-    public void testCreateLogClass() {
+    public void testCreateLogClass() throws YogaLMSPersistenceException {
         // arrange test data
         Log log = testHelperMethods.createTestLog();
         YogaClass yogaClass = testHelperMethods.createTestYogaClassAndSave();
@@ -67,7 +68,7 @@ public class LogClassDaoTest {
     }
 
     @Test
-    public void testReadLogClass() {
+    public void testReadLogClass() throws YogaLMSPersistenceException{
         // arrange test data
         Log log = testHelperMethods.createTestLog();
         YogaClass yogaClass = testHelperMethods.createTestYogaClassAndSave();
@@ -86,7 +87,7 @@ public class LogClassDaoTest {
     }
 
     @Test
-    public void testUpdateLogClass() {
+    public void testUpdateLogClass() throws YogaLMSPersistenceException{
         // arrange test data
         Log log = testHelperMethods.createTestLog();
         YogaClass yogaClass = testHelperMethods.createTestYogaClassAndSave();
@@ -112,7 +113,7 @@ public class LogClassDaoTest {
     }
 
     @Test
-    public void testDeleteLogClass() {
+    public void testDeleteLogClass() throws YogaLMSPersistenceException{
         // arrange test data
         Log log = testHelperMethods.createTestLog();
         YogaClass yogaClass = testHelperMethods.createTestYogaClassAndSave();
@@ -129,7 +130,7 @@ public class LogClassDaoTest {
     }
 
     @Test
-    public void testRetrieveAllLogClasses() {
+    public void testRetrieveAllLogClasses() throws YogaLMSPersistenceException{
         // arrange test data
         for(int i=0; i < 15; i++){
             Log log = testHelperMethods.createTestLog();

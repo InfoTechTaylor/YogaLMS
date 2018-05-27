@@ -6,6 +6,7 @@ import org.junit.runner.RunWith;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import yogaLMS.dao.YogaLMSPersistenceException;
 
 import static org.junit.Assert.*;
 
@@ -19,22 +20,22 @@ public class LogWorkshopServiceTest {
     }
 
     @Test
-    public void create() {
+    public void create() throws YogaLMSPersistenceException {
     }
 
     @Test
-    public void read() {
+    public void read() throws YogaLMSPersistenceException{
     }
 
     @Test
-    public void update() {
+    public void update() throws YogaLMSPersistenceException{
     }
 
     @Test
-    public void delete() {
+    public void delete() throws YogaLMSPersistenceException{
     }
 
     @Test
-    public void retrieveAll() {
+    public void retrieveAll() throws YogaLMSPersistenceException{
     }
 }

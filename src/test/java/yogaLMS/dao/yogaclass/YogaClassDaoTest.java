@@ -8,6 +8,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import testUtils.TestHelperMethods;
 import yogaLMS.dao.GenericDao;
+import yogaLMS.dao.YogaLMSPersistenceException;
 import yogaLMS.dao.yogaclass.YogaClassDao;
 import yogaLMS.dto.yogaclass.YogaClass;
 
@@ -24,13 +25,13 @@ import static org.junit.Assert.*;
 public class YogaClassDaoTest {
 
     @Inject
-    private GenericDao classDao;
+    private YogaClassDao classDao;
 
     @Inject
     private TestHelperMethods testHelperMethods;
 
     @Before
-    public void setup(){
+    public void setup() throws YogaLMSPersistenceException {
         // make sure each test starts with a clean slate, zero classes
         List<YogaClass> allClasses = classDao.retrieveAll();
         for(YogaClass currentYogaClass: allClasses){
@@ -39,7 +40,7 @@ public class YogaClassDaoTest {
     }
 
     @Test
-    public void testCreateYogaClass() {
+    public void testCreateYogaClass() throws YogaLMSPersistenceException {
         // arrange test data
         YogaClass testYogaClass = new YogaClass();
         testYogaClass.setClassName("Yoga I");
@@ -49,7 +50,7 @@ public class YogaClassDaoTest {
         testYogaClass.setTeacherName("Julie Rost");
 
         // act, call method to test
-        YogaClass createdYogaClass = (YogaClass)classDao.create(testYogaClass);
+        YogaClass createdYogaClass = classDao.create(testYogaClass);
 
         // assert expected behavior
         assertNotNull(createdYogaClass.getId()); // assert an id is set on new yoga class
@@ -61,13 +62,13 @@ public class YogaClassDaoTest {
     }
 
     @Test
-    public void testReadYogaClass() {
+    public void testReadYogaClass() throws YogaLMSPersistenceException {
         // arrange test data
         YogaClass testYogaClass = testHelperMethods.createTestYogaClass(); // same yoga class as above but use test methods for cleaner code
-        YogaClass createdYogaClass = (YogaClass)classDao.create(testYogaClass);
+        YogaClass createdYogaClass = classDao.create(testYogaClass);
 
         // act, call method to test
-        YogaClass readYogaClass = (YogaClass)classDao.read(createdYogaClass.getId());
+        YogaClass readYogaClass = classDao.read(createdYogaClass.getId());
 
         // assert expected behavior
         assertNotNull(readYogaClass.getId()); // assert an id is set on new yoga class
@@ -79,10 +80,10 @@ public class YogaClassDaoTest {
     }
 
     @Test
-    public void testUpdateYogaClass() {
+    public void testUpdateYogaClass() throws YogaLMSPersistenceException {
         // arrange test data
         YogaClass testYogaClass = testHelperMethods.createTestYogaClass(); // same yoga class as above but use test methods for cleaner code
-        YogaClass createdYogaClass = (YogaClass)classDao.create(testYogaClass);
+        YogaClass createdYogaClass = classDao.create(testYogaClass);
 
         // modify the class to pass to update function
         createdYogaClass.setStudioName("Bending Bodhi");
@@ -95,7 +96,7 @@ public class YogaClassDaoTest {
         classDao.update(createdYogaClass);
 
         // assert expected behavior
-        YogaClass updatedClass = (YogaClass)classDao.read(createdYogaClass.getId());
+        YogaClass updatedClass = classDao.read(createdYogaClass.getId());
         assertEquals(createdYogaClass.getId(), updatedClass.getId());
         assertEquals("Yoga II", updatedClass.getClassName());
         assertEquals(LocalDate.parse("2018-05-09"), updatedClass.getDate());
@@ -105,10 +106,10 @@ public class YogaClassDaoTest {
     }
 
     @Test
-    public void testDeleteYogaClass() {
+    public void testDeleteYogaClass() throws YogaLMSPersistenceException {
         // arrange test data
         YogaClass testYogaClass = testHelperMethods.createTestYogaClass(); // same yoga class as above but use test methods for cleaner code
-        YogaClass createdYogaClass = (YogaClass)classDao.create(testYogaClass);
+        YogaClass createdYogaClass = classDao.create(testYogaClass);
 
         // act, call method to test
         classDao.delete(createdYogaClass);
@@ -118,7 +119,7 @@ public class YogaClassDaoTest {
     }
 
     @Test
-    public void testRetrieveAllYogaClasses() {
+    public void testRetrieveAllYogaClasses() throws YogaLMSPersistenceException {
         // arrange test data
         for(int i = 0; i < 15; i++){
             classDao.create(testHelperMethods.createTestYogaClass());
@@ -131,25 +132,25 @@ public class YogaClassDaoTest {
         assertEquals(15, allYogaClasses.size());
     }
 
-//    @Test
-//    public void testRetrieveAllClassesByStudio() {
-//        // arrange test data
-//        for(int i = 0; i < 7; i++){
-//            // create 7 classes with "YogaLife" as studio which is what is set in the testYogaClass helper method
-//            classDao.create(testHelperMethods.createTestYogaClass());
-//        }
-//
-//        for(int i = 0; i < 3; i++){
-//            // create 3 classes with "Bending Bodhi" as studio
-//            YogaClass yogaClass = testHelperMethods.createTestYogaClass();
-//            yogaClass.setStudioName("Bending Bodhi");
-//            classDao.create(yogaClass);
-//        }
-//
-//        // act, call method to test
-//        List<YogaClass> allYogaLifeClasses = classDao.retrieveAllByStudio("YogaLife");
-//
-//        // assert expected behavior
-//        assertEquals(7, allYogaLifeClasses.size());
-//    }
+    @Test
+    public void testRetrieveAllClassesByStudio() throws YogaLMSPersistenceException {
+        // arrange test data
+        for(int i = 0; i < 7; i++){
+            // create 7 classes with "YogaLife" as studio which is what is set in the testYogaClass helper method
+            classDao.create(testHelperMethods.createTestYogaClass());
+        }
+
+        for(int i = 0; i < 3; i++){
+            // create 3 classes with "Bending Bodhi" as studio
+            YogaClass yogaClass = testHelperMethods.createTestYogaClass();
+            yogaClass.setStudioName("Bending Bodhi");
+            classDao.create(yogaClass);
+        }
+
+        // act, call method to test
+        List<YogaClass> allYogaLifeClasses = classDao.retrieveAllByStudio("YogaLife");
+
+        // assert expected behavior
+        assertEquals(7, allYogaLifeClasses.size());
+    }
 }
