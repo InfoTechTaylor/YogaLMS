@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class GenericDaoImpl<T extends Dto> implements GenericDao<T> {
+public abstract class GenericDaoInMemImpl<T extends Dto> implements GenericDao<T> {
 
     private Map<Long, T> map = new HashMap<>();
     private Long currentHighestId = 0L;
