@@ -1,6 +1,6 @@
-package yogaLMS.dao.yogaclass;
+package yogaLMS.dao.inmemoryimpl;
 
-import yogaLMS.dao.GenericDaoInMemImpl;
+import yogaLMS.dao.inmemoryimpl.GenericDaoInMemImpl;
 import yogaLMS.dao.yogaclass.YogaClassDao;
 import yogaLMS.dto.yogaclass.YogaClass;
 

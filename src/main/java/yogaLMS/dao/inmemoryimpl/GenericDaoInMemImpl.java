@@ -1,5 +1,6 @@
-package yogaLMS.dao;
+package yogaLMS.dao.inmemoryimpl;
 
+import yogaLMS.dao.GenericDao;
 import yogaLMS.dto.Dto;
 
 import java.util.ArrayList;
