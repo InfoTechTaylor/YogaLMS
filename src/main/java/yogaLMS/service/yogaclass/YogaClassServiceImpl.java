@@ -46,7 +46,7 @@ public class YogaClassServiceImpl implements YogaClassService {
     }
 
     @Override
-    public List<YogaClass> retrieveAllByStudio(String studio) {
+    public List<YogaClass> retrieveAllByStudio(String studio) throws YogaLMSPersistenceException {
         return yogaClassDao.retrieveAllByStudio(studio);
     }
 

@@ -17,7 +17,7 @@ public interface YogaClassService {
 
     public List<YogaClass> retrieveAll() throws YogaLMSPersistenceException;
 
-    public List<YogaClass> retrieveAllByStudio(String studio);
+    public List<YogaClass> retrieveAllByStudio(String studio) throws YogaLMSPersistenceException;
 
     public List<YogaClass> retrieveAllByLogId(Long id) throws YogaLMSPersistenceException;
 }
