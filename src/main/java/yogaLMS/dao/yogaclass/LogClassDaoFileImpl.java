@@ -12,8 +12,12 @@ import java.util.*;
 public class LogClassDaoFileImpl extends GenericDaoFileImpl<LogClass> implements LogClassDao {
 
     private Map<Long, LogClass> map = super.getMap();
-    private final String LOG_CLASS_FILE = "logClassFile.txt";
+    private String filename;
     private final String STRING_DELIMITER = "::";
+
+    public LogClassDaoFileImpl(String filename) {
+        this.filename = filename;
+    }
 
     @Override
     public void loadEntities() throws YogaLMSPersistenceException {
@@ -22,7 +26,7 @@ public class LogClassDaoFileImpl extends GenericDaoFileImpl<LogClass> implements
 
         try {
             // create Scanner object for reading the file
-            scanner = new Scanner(new BufferedReader(new FileReader(LOG_CLASS_FILE)));
+            scanner = new Scanner(new BufferedReader(new FileReader(this.filename)));
 
             // currentLine holds the most recent line read from the file
             String currentLine;
@@ -66,7 +70,7 @@ public class LogClassDaoFileImpl extends GenericDaoFileImpl<LogClass> implements
     public void writeEntities() throws YogaLMSPersistenceException {
         PrintWriter out = null;
         try {
-            out = new PrintWriter(new FileWriter(LOG_CLASS_FILE));
+            out = new PrintWriter(new FileWriter(this.filename));
             // write out the LogClass objects to the file
             List<LogClass> logClassList = this.retrieveAll();
             for(LogClass logClass : logClassList){
