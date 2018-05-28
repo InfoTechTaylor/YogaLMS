@@ -16,9 +16,9 @@
 
     <!-- Bean definitions go here -->
     <!--dao beans-->
-    <bean id="yogaClassDaoInMemory" class="yogaLMS.dao.yogaclass.YogaClassDaoInMemImpl"/>
-    <bean id="logDao" class="yogaLMS.dao.log.LogDaoInMemoryImpl" />
-    <bean id="logClassDao" class="yogaLMS.dao.yogaclass.LogClassDaoInMemoryImpl" />
+    <bean id="yogaClassDaoInMemory" class="yogaLMS.dao.inmemoryimpl.YogaClassDaoInMemImpl"/>
+    <bean id="logDao" class="yogaLMS.dao.inmemoryimpl.LogDaoInMemoryImpl" />
+    <bean id="logClassDao" class="yogaLMS.dao.inmemoryimpl.LogClassDaoInMemoryImpl" />
     <bean id="workshopDao" class="yogaLMS.dao.workshop.WorkshopDaoFileImpl" >
         <constructor-arg value="workshops.txt" /></bean>
     <bean id="logWorkshopDao" class="yogaLMS.dao.workshop.LogWorkshopDaoFileImpl">
