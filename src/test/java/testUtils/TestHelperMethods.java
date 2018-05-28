@@ -66,7 +66,8 @@ public class TestHelperMethods {
     }
 
     public Program createTestProgram(){
-        Program newProgram = new TT1Program();
+        Program newProgram = new Program();
+        newProgram.setId(1L);
         newProgram.setName("TT1");
         newProgram.setDescription("200 hour teacher training");
         newProgram.setNumHours(200d);
@@ -76,7 +77,8 @@ public class TestHelperMethods {
     }
 
     public Program createTestProgramAndSave(){
-        Program newProgram = new TT1Program();
+        Program newProgram = new Program();
+        newProgram.setId(1L);
         newProgram.setName("TT1");
         newProgram.setDescription("200 hour teacher training");
         newProgram.setNumHours(200d);
