@@ -82,14 +82,8 @@ public class LogServiceTest {
 
         // assert expected behavior
         assertEquals(createdLog.getId(), readLog.getId());
-//        assertEquals(student.getFirstName(), readLog.getStudent().getFirstName());
-//        assertEquals(student.getLastName(), readLog.getStudent().getLastName());
-//        assertEquals(student.getEmailAddress(), readLog.getStudent().getEmailAddress());
-        assertEquals(tt1.getName(), readLog.getProgram().getName());
-        assertEquals(tt1.getDescription(), readLog.getProgram().getDescription());
-        assert tt1.getNumHours() == readLog.getProgram().getNumHours();
-        assertEquals(tt1.getStartDate(), readLog.getProgram().getStartDate());
-        assertEquals(tt1.getEndDate(), readLog.getProgram().getEndDate());
+        assertEquals(log.getStartDate(), readLog.getStartDate());
+        assertEquals(log.getEndDate(), readLog.getEndDate());
     }
 
     @Test

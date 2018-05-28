@@ -95,7 +95,7 @@ public class YogaClassDaoFileImpl extends GenericDaoFileImpl<YogaClass> implemen
                         + currentClass.getClassName() + STRING_DELIMITER
                         + currentClass.getTeacherName() + STRING_DELIMITER
                         + currentClass.getStudioName() + STRING_DELIMITER
-                        + currentClass.getHours() + STRING_DELIMITER);
+                        + currentClass.getHours());
 
                 // force PrinteWriter to write line to the file
                 out.flush();

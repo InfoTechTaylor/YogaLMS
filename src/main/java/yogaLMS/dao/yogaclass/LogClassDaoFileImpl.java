@@ -77,7 +77,7 @@ public class LogClassDaoFileImpl extends GenericDaoFileImpl<LogClass> implements
                 // write the LogClass object to the file as a line
                 out.println(logClass.getId() + STRING_DELIMITER
                         + logClass.getYogaClass().getId() + STRING_DELIMITER
-                        + logClass.getLog().getId() + STRING_DELIMITER);
+                        + logClass.getLog().getId());
 
                 // force PrinteWriter to write line to the file
                 out.flush();

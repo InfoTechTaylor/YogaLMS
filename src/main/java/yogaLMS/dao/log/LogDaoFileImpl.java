@@ -54,7 +54,7 @@ public class LogDaoFileImpl extends GenericDaoFileImpl<Log> implements LogDao {
                     program.setId(Long.parseLong(currentTokens[1]));
                     currentLog.setProgram(program);
                     currentLog.setStartDate(LocalDate.parse(currentTokens[2]));
-                    if(currentTokens[3] != null) {
+                    if(!currentTokens[3].equals("null")) {
                         currentLog.setEndDate(LocalDate.parse(currentTokens[3]));
                     } else {
                         currentLog.setEndDate(null);
@@ -83,7 +83,7 @@ public class LogDaoFileImpl extends GenericDaoFileImpl<Log> implements LogDao {
                 out.println(currentLog.getId() + STRING_DELIMITER
                         + currentLog.getProgram().getId() + STRING_DELIMITER
                         + currentLog.getStartDate() + STRING_DELIMITER
-                        + currentLog.getEndDate() + STRING_DELIMITER);
+                        + currentLog.getEndDate());
 
                 // force PrinteWriter to write line to the file
                 out.flush();

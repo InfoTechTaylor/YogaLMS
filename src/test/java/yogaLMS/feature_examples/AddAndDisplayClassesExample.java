@@ -52,7 +52,10 @@ public class AddAndDisplayClassesExample {
     @Before
     public void setUp() throws Exception {
         // start with clean slate, delete all saved objects
-
+        List<YogaClass> allClasses = yogaClassService.retrieveAll();
+        for(YogaClass currentClass: allClasses){
+            yogaClassService.delete(currentClass);
+        }
 
         // setup some object to fulfill preconditions
         // setup training program to fulfill precondition
