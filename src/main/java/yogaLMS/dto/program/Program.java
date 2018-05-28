@@ -4,7 +4,7 @@ import yogaLMS.dto.Dto;
 
 import java.time.LocalDate;
 
-public abstract class Program extends Dto {
+public class Program extends Dto {
 
     private Long id;
     private String name;
@@ -12,8 +12,6 @@ public abstract class Program extends Dto {
     private double numHours;
     private LocalDate startDate;
     private LocalDate endDate;
-
-    public abstract String generateRequirementsList();
 
     public Long getId() {
         return id;
