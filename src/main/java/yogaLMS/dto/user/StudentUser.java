@@ -3,7 +3,9 @@ package yogaLMS.dto.user;
 import yogaLMS.dto.log.Log;
 import yogaLMS.dto.program.Program;
 
-public class StudentUser extends User{
+import java.io.Serializable;
+
+public class StudentUser extends User implements Serializable {
 
     private Program program;
     private Log log;

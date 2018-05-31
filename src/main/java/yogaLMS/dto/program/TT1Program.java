@@ -1,6 +1,8 @@
 package yogaLMS.dto.program;
 
-public class TT1Program extends Program {
+import java.io.Serializable;
+
+public class TT1Program extends Program implements Serializable {
 
     private int numPoseEssays;
     private int numTTAsanaWorkshops;

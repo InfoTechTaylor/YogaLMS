@@ -1,6 +1,8 @@
 package yogaLMS.dto.user;
 
-public class FacultyUser extends User {
+import java.io.Serializable;
+
+public class FacultyUser extends User implements Serializable {
 
     private boolean isMentor;
     private String yogaCertification;

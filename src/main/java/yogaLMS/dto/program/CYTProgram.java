@@ -1,6 +1,8 @@
 package yogaLMS.dto.program;
 
-public class CYTProgram extends Program {
+import java.io.Serializable;
+
+public class CYTProgram extends Program implements Serializable {
 
     private int numYogaTherapySessions;
     private int numSeminars;

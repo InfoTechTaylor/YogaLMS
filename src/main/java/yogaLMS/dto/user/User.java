@@ -2,7 +2,9 @@ package yogaLMS.dto.user;
 
 import yogaLMS.dto.Dto;
 
-public abstract class User extends Dto {
+import java.io.Serializable;
+
+public abstract class User extends Dto implements Serializable {
 
     private Long id;
     private String firstName;
