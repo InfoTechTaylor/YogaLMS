@@ -2,9 +2,10 @@ package yogaLMS.dto.yogaclass;
 
 import yogaLMS.dto.Dto;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class YogaClass extends Dto {
+public class YogaClass extends Dto implements Serializable {
 
     private Long id;
     private LocalDate date;

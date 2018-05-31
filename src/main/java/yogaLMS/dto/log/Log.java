@@ -5,9 +5,10 @@ import yogaLMS.dto.program.Program;
 import yogaLMS.dto.user.StudentUser;
 import yogaLMS.dto.user.User;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class Log extends Dto {
+public class Log extends Dto implements Serializable {
 
     private Long id;
     private Program program;

@@ -2,9 +2,10 @@ package yogaLMS.dto.workshop;
 
 import yogaLMS.dto.Dto;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class Workshop extends Dto {
+public class Workshop extends Dto implements Serializable {
     private Long id;
     private LocalDate date;
     private String name;

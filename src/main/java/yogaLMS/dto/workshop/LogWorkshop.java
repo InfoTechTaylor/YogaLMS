@@ -3,7 +3,9 @@ package yogaLMS.dto.workshop;
 import yogaLMS.dto.Dto;
 import yogaLMS.dto.log.Log;
 
-public class LogWorkshop extends Dto {
+import java.io.Serializable;
+
+public class LogWorkshop extends Dto implements Serializable {
     private Long id;
     private Log log;
     private Workshop workshop;
