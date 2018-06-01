@@ -1,0 +1,5 @@
+package yogaLMS.dto.yogapose;
+
+public enum PoseCategory {
+    UPWARD, SIDEWARD, FORWARD, BACKWARD, TWISTING, BALANCE, EXTREMITIES, INVERSION, RELAXATION, MEDITATIVE
+}
