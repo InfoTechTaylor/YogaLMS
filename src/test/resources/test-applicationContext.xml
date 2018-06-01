@@ -43,6 +43,10 @@
     <bean id="logWorkshopService" class="yogaLMS.service.workshop.LogWorkshopServiceFileImpl">
         <constructor-arg ref="logWorkshopDao"/>
     </bean>
+    <bean id="yogaPoseService" class="yogaLMS.service.yogapose.YogaPoseServiceImpl">
+        <constructor-arg ref="yogaPoseDao"/>
+    </bean>
+
 
     <bean id="testHelperMethods" class="testUtils.TestHelperMethods" />
 
