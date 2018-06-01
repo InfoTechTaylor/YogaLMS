@@ -2,17 +2,15 @@ package yogaLMS.dto.yogapose;
 
 import yogaLMS.dto.Dto;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class YogaPose extends Dto {
+public class YogaPose extends Dto implements Serializable {
 
     private Long id;
     private String name;
-    private DifficultyLevel level;
     private List<PoseCategory> categories;
-    private List<String> variations;
     private List<Chakra> chakras;
-    private List<String> cautions;
     private List<TargetArea> targetArea;
     private List<String> archetype;
     private List<String> attitude;
@@ -42,13 +40,6 @@ public class YogaPose extends Dto {
         this.name = name;
     }
 
-    public DifficultyLevel getLevel() {
-        return level;
-    }
-
-    public void setLevel(DifficultyLevel level) {
-        this.level = level;
-    }
 
     public List<PoseCategory> getCategories() {
         return categories;
@@ -56,14 +47,6 @@ public class YogaPose extends Dto {
 
     public void setCategories(List<PoseCategory> categories) {
         this.categories = categories;
-    }
-
-    public List<String> getVariations() {
-        return variations;
-    }
-
-    public void setVariations(List<String> variations) {
-        this.variations = variations;
     }
 
     public List<Chakra> getChakras() {
@@ -74,13 +57,7 @@ public class YogaPose extends Dto {
         this.chakras = chakras;
     }
 
-    public List<String> getCautions() {
-        return cautions;
-    }
 
-    public void setCautions(List<String> cautions) {
-        this.cautions = cautions;
-    }
 
     public List<TargetArea> getTargetArea() {
         return targetArea;

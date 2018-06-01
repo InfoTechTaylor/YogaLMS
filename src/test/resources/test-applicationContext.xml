@@ -16,14 +16,17 @@
 
     <!-- Bean definitions go here -->
 
-    <bean id="yogaClassDao" class="yogaLMS.dao.yogaclass.YogaClassDaoFileImpl">
-        <constructor-arg value="yogaClassFile.txt"/>
+    <bean id="yogaClassDao" class="yogaLMS.dao.yogaclass.YogaClassDaoObjectStreamImpl">
+        <constructor-arg value="yogaClassFile.dat"/>
+    </bean>
+    <bean id="yogaPoseDao" class="yogaLMS.dao.yogapose.YogaPoseDaoObjectStreamImpl">
+        <constructor-arg value="yogaPoseFile.dat"/>
     </bean>
     <bean id="logDao" class="yogaLMS.dao.log.LogDaoFileImpl" >
         <constructor-arg value="logFile.txt" />
     </bean>
-    <bean id="logClassDao" class="yogaLMS.dao.yogaclass.LogClassDaoFileImpl" >
-        <constructor-arg value="logClassFile.txt"/>
+    <bean id="logClassDao" class="yogaLMS.dao.yogaclass.LogClassDaoObjectStreamImpl" >
+        <constructor-arg value="logClassFile.dat"/>
     </bean>
     <bean id="workshopDao" class="yogaLMS.dao.workshop.WorkshopDaoFileImpl" >
         <constructor-arg value="workshops.txt" /></bean>

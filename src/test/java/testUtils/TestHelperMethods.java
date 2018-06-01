@@ -12,9 +12,13 @@ import yogaLMS.dto.user.User;
 import yogaLMS.dto.workshop.LogWorkshop;
 import yogaLMS.dto.workshop.Workshop;
 import yogaLMS.dto.yogaclass.YogaClass;
+import yogaLMS.dto.yogapose.Chakra;
+import yogaLMS.dto.yogapose.YogaPose;
 
 import javax.inject.Inject;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 public class TestHelperMethods {
 
@@ -121,6 +125,53 @@ public class TestHelperMethods {
         logWorkshop.setWorkshop(workshop);
         logWorkshop.setLog(log);
         return logWorkshop;
+    }
+
+    public YogaPose createTestYogaPose(){
+        YogaPose yogaPose = new YogaPose();
+        yogaPose.setName("Vrikshasana 'Tree Pose'");
+        List<String> intentions = new ArrayList<>();
+        intentions.add("Personal intention based on individual growth");
+        yogaPose.setIntention(intentions);
+        List<String> attitudes = new ArrayList<>();
+        attitudes.add("Giving");
+        attitudes.add("The abundance of a tree");
+        yogaPose.setAttitude(attitudes);
+        List<String> archetypes = new ArrayList<>();
+        archetypes.add("Deeply rooted while reaching for the sky");
+        yogaPose.setArchetype(archetypes);
+        List<String> posturalAlignments = new ArrayList<>();
+        posturalAlignments.add("Rest foot on ankle, calf, or inner thigh");
+        posturalAlignments.add("Lifted knee turns out to the side");
+        posturalAlignments.add("Press foot into leg and leg into foot");
+        posturalAlignments.add("Lengthen spine upward, relax shoulders");
+        posturalAlignments.add("Upper arms close to ears");
+        yogaPose.setPosturalAlignment(posturalAlignments);
+        List<String> breathings = new ArrayList<>();
+        breathings.add("Natural deep breathing");
+        yogaPose.setBreathing(breathings);
+        List<String> mentalFocuses = new ArrayList<>();
+        mentalFocuses.add("Root - one foot beneath the floor");
+        mentalFocuses.add("Heart - feeling the giving nature of tree");
+        yogaPose.setMentalFocus(mentalFocuses);
+        List<Chakra> chakras = new ArrayList<>();
+        chakras.add(Chakra.FIRST);
+        chakras.add(Chakra.FOURTH);
+        yogaPose.setChakras(chakras);
+        List<String> locksAndSeals = new ArrayList<>();
+        locksAndSeals.add("Prayer mudra, hands above head or hands at heart");
+        locksAndSeals.add("Root lock");
+        yogaPose.setLockAndSeals(locksAndSeals);
+        List<String> psychBlocks = new ArrayList<>();
+        psychBlocks.add("Challenges attachment to balance");
+        psychBlocks.add("Aversion to imbalance");
+        psychBlocks.add("Fear of falling");
+        yogaPose.setPsychologicalBlock(psychBlocks);
+        List<String> emotionalTransformations = new ArrayList<>();
+        emotionalTransformations.add("Worry vs. Faith");
+        yogaPose.setEmotionalTransformation(emotionalTransformations);
+
+        return yogaPose;
     }
 
 }
