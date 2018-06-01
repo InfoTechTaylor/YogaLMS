@@ -17,13 +17,13 @@ import java.time.LocalDate;
 
 @Controller
 //@RequestMapping(value="/log")
-public class LogController {
+public class Controller {
 
     private LogClassService logClassService;
     private LogService logService;
     private YogaClassService yogaClassService;
 
-    public LogController(LogClassService logClassService, LogService logService, YogaClassService yogaClassService){
+    public Controller(LogClassService logClassService, LogService logService, YogaClassService yogaClassService){
         this.logClassService = logClassService;
         this.logService = logService;
         this.yogaClassService = yogaClassService;
