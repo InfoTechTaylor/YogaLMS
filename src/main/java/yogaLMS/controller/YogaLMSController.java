@@ -15,15 +15,14 @@ import yogaLMS.service.yogaclass.YogaClassService;
 
 import java.time.LocalDate;
 
-@Controller
 //@RequestMapping(value="/log")
-public class Controller {
+public class YogaLMSController {
 
     private LogClassService logClassService;
     private LogService logService;
     private YogaClassService yogaClassService;
 
-    public Controller(LogClassService logClassService, LogService logService, YogaClassService yogaClassService){
+    public YogaLMSController(LogClassService logClassService, LogService logService, YogaClassService yogaClassService){
         this.logClassService = logClassService;
         this.logService = logService;
         this.yogaClassService = yogaClassService;
