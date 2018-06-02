@@ -1,5 +1,6 @@
 package yogaLMS.service.yogapose;
 
+import javafx.geometry.Pos;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -7,9 +8,11 @@ import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import testUtils.TestHelperMethods;
+import yogaLMS.dto.yogapose.PoseCategory;
 import yogaLMS.dto.yogapose.YogaPose;
 
 import javax.inject.Inject;
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.*;
@@ -98,6 +101,37 @@ public class YogaPoseServiceTest {
 
         // assert
         assertEquals(15, allPoses.size());
+    }
+
+    @Test
+    public void testRetrieveAllByCategory() throws Exception{
+        // arrange
+        for(int i=0; i<3; i++) {
+            YogaPose balancePose = new YogaPose();
+            List<PoseCategory> categories = new ArrayList<>();
+            categories.add(PoseCategory.BALANCE);
+            categories.add(PoseCategory.BACKWARD);
+            balancePose.setCategories(categories);
+            yogaPoseService.create(balancePose);
+        }
+        for(int i=0; i<15; i++){
+            YogaPose balancePose = new YogaPose();
+            List<PoseCategory> categories = new ArrayList<>();
+            categories.add(PoseCategory.TWISTING);
+            categories.add(PoseCategory.BACKWARD);
+            balancePose.setCategories(categories);
+            yogaPoseService.create(balancePose);
+        }
+
+        // act
+        List<YogaPose> allBalancePoses = yogaPoseService.retrieveAllByCategory(PoseCategory.BALANCE);
+        List<YogaPose> allTwistingPoses = yogaPoseService.retrieveAllByCategory(PoseCategory.TWISTING);
+        List<YogaPose> allBackwardPoses = yogaPoseService.retrieveAllByCategory(PoseCategory.BACKWARD);
+
+        // assert
+        assert 3 == allBalancePoses.size();
+        assert 15 == allTwistingPoses.size();
+        assert 18 == allBackwardPoses.size();
     }
 
 }

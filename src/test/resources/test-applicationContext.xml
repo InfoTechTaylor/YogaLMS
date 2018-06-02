@@ -25,8 +25,8 @@
     <bean id="logDao" class="yogaLMS.dao.log.LogDaoFileImpl" >
         <constructor-arg value="logFile.txt" />
     </bean>
-    <bean id="logClassDao" class="yogaLMS.dao.yogaclass.LogClassDaoObjectStreamImpl" >
-        <constructor-arg value="logClassFile.dat"/>
+    <bean id="logClassDao" class="yogaLMS.dao.yogaclass.LogClassDaoFileImpl" >
+        <constructor-arg value="logClassFile.txt"/>
     </bean>
     <bean id="workshopDao" class="yogaLMS.dao.workshop.WorkshopDaoFileImpl" >
         <constructor-arg value="workshops.txt" /></bean>

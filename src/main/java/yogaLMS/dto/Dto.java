@@ -1,6 +1,8 @@
 package yogaLMS.dto;
 
-public abstract class Dto {
+import java.io.Serializable;
+
+public abstract class Dto{
 
     private Long id;
 

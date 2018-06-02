@@ -40,7 +40,7 @@
     </bean>
 
 
-    <bean id="logController" class="yogaLMS.controller.LogController">
+    <bean id="logController" class="yogaLMS.controller.YogaLMSController">
         <constructor-arg ref="logClassService" />
         <constructor-arg ref="logService" />
         <constructor-arg ref="yogaClassService" />

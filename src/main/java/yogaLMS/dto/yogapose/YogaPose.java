@@ -11,16 +11,16 @@ public class YogaPose extends Dto implements Serializable {
     private String name;
     private List<PoseCategory> categories;
     private List<Chakra> chakras;
-    private List<TargetArea> targetArea;
-    private List<String> archetype;
-    private List<String> attitude;
+    private List<TargetArea> targetAreas;
+    private List<String> archetypes;
+    private List<String> attitudes;
     private List<String> intention;
-    private List<String> posturalAlignment;
-    private List<String> breathing;
-    private List<String> mentalFocus;
+    private List<String> posturalAlignments;
+    private List<String> breathingTechniques;
+    private List<String> mentalFocuses;
     private List<String> lockAndSeals;
-    private List<String> psychologicalBlock;
-    private List<String> emotionalTransformation;
+    private List<String> psychologicalBlocks;
+    private List<String> emotionalTransformations;
 
     @Override
     public Long getId() {
@@ -59,28 +59,28 @@ public class YogaPose extends Dto implements Serializable {
 
 
 
-    public List<TargetArea> getTargetArea() {
-        return targetArea;
+    public List<TargetArea> getTargetAreas() {
+        return targetAreas;
     }
 
-    public void setTargetArea(List<TargetArea> targetArea) {
-        this.targetArea = targetArea;
+    public void setTargetAreas(List<TargetArea> targetAreas) {
+        this.targetAreas = targetAreas;
     }
 
-    public List<String> getArchetype() {
-        return archetype;
+    public List<String> getArchetypes() {
+        return archetypes;
     }
 
-    public void setArchetype(List<String> archetype) {
-        this.archetype = archetype;
+    public void setArchetypes(List<String> archetypes) {
+        this.archetypes = archetypes;
     }
 
-    public List<String> getAttitude() {
-        return attitude;
+    public List<String> getAttitudes() {
+        return attitudes;
     }
 
-    public void setAttitude(List<String> attitude) {
-        this.attitude = attitude;
+    public void setAttitudes(List<String> attitudes) {
+        this.attitudes = attitudes;
     }
 
     public List<String> getIntention() {
@@ -91,28 +91,28 @@ public class YogaPose extends Dto implements Serializable {
         this.intention = intention;
     }
 
-    public List<String> getPosturalAlignment() {
-        return posturalAlignment;
+    public List<String> getPosturalAlignments() {
+        return posturalAlignments;
     }
 
-    public void setPosturalAlignment(List<String> posturalAlignment) {
-        this.posturalAlignment = posturalAlignment;
+    public void setPosturalAlignments(List<String> posturalAlignments) {
+        this.posturalAlignments = posturalAlignments;
     }
 
-    public List<String> getBreathing() {
-        return breathing;
+    public List<String> getBreathingTechniques() {
+        return breathingTechniques;
     }
 
-    public void setBreathing(List<String> breathing) {
-        this.breathing = breathing;
+    public void setBreathingTechniques(List<String> breathingTechniques) {
+        this.breathingTechniques = breathingTechniques;
     }
 
-    public List<String> getMentalFocus() {
-        return mentalFocus;
+    public List<String> getMentalFocuses() {
+        return mentalFocuses;
     }
 
-    public void setMentalFocus(List<String> mentalFocus) {
-        this.mentalFocus = mentalFocus;
+    public void setMentalFocuses(List<String> mentalFocuses) {
+        this.mentalFocuses = mentalFocuses;
     }
 
     public List<String> getLockAndSeals() {
@@ -123,19 +123,19 @@ public class YogaPose extends Dto implements Serializable {
         this.lockAndSeals = lockAndSeals;
     }
 
-    public List<String> getPsychologicalBlock() {
-        return psychologicalBlock;
+    public List<String> getPsychologicalBlocks() {
+        return psychologicalBlocks;
     }
 
-    public void setPsychologicalBlock(List<String> psychologicalBlock) {
-        this.psychologicalBlock = psychologicalBlock;
+    public void setPsychologicalBlocks(List<String> psychologicalBlocks) {
+        this.psychologicalBlocks = psychologicalBlocks;
     }
 
-    public List<String> getEmotionalTransformation() {
-        return emotionalTransformation;
+    public List<String> getEmotionalTransformations() {
+        return emotionalTransformations;
     }
 
-    public void setEmotionalTransformation(List<String> emotionalTransformation) {
-        this.emotionalTransformation = emotionalTransformation;
+    public void setEmotionalTransformations(List<String> emotionalTransformations) {
+        this.emotionalTransformations = emotionalTransformations;
     }
 }

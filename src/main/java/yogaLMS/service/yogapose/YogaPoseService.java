@@ -1,6 +1,7 @@
 package yogaLMS.service.yogapose;
 
 import yogaLMS.dao.YogaLMSPersistenceException;
+import yogaLMS.dto.yogapose.PoseCategory;
 import yogaLMS.dto.yogapose.YogaPose;
 
 import java.util.List;
@@ -16,4 +17,6 @@ public interface YogaPoseService {
     void delete(YogaPose persistentEntity) throws YogaLMSPersistenceException;
 
     List<YogaPose> retrieveAll() throws YogaLMSPersistenceException;
+
+    List<YogaPose> retrieveAllByCategory(PoseCategory category) throws YogaLMSPersistenceException;
 }

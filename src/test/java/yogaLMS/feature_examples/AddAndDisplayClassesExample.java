@@ -57,6 +57,16 @@ public class AddAndDisplayClassesExample {
             yogaClassService.delete(currentClass);
         }
 
+        List<Log> allLogs = logService.retrieveAll();
+        for(Log currentLog : allLogs){
+            logService.delete(currentLog);
+        }
+
+        List<LogClass> allLogClasses = logClassService.retrieveAll();
+        for(LogClass currentLogClass : allLogClasses){
+            logClassService.delete(currentLogClass);
+        }
+
         // setup some object to fulfill preconditions
         // setup training program to fulfill precondition
         Program tt1 = testHelperMethods.createTestProgram();

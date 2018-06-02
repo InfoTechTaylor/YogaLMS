@@ -1,7 +1,8 @@
-package yogaLMS.dao.yogaclass;
+package yogaLMS.dao.fileimpl;
 
 import yogaLMS.dao.GenericDaoFileImpl;
 import yogaLMS.dao.YogaLMSPersistenceException;
+import yogaLMS.dao.yogaclass.YogaClassDao;
 import yogaLMS.dto.yogaclass.YogaClass;
 
 import java.io.*;
