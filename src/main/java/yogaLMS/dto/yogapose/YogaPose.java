@@ -138,4 +138,21 @@ public class YogaPose extends Dto implements Serializable {
     public void setEmotionalTransformations(List<String> emotionalTransformations) {
         this.emotionalTransformations = emotionalTransformations;
     }
+
+    @Override
+    public String toString() {
+        return name + "\n" +
+                "categories:" + categories +
+                "\n\tchakras:" + chakras +
+                "\n\ttargetAreas:" + targetAreas +
+                "\n\tarchetypes:" + archetypes +
+                "\n\tattitudes:" + attitudes +
+                "\n\tintentions:" + intention +
+                "\n\tposturalAlignments:" + posturalAlignments +
+                "\n\tbreathingTechniques:" + breathingTechniques +
+                "\n\tmentalFocuses:" + mentalFocuses +
+                "\n\tlockAndSeals:" + lockAndSeals +
+                "\n\tpsychologicalBlocks:" + psychologicalBlocks +
+                "\n\temotionalTransformations:" + emotionalTransformations + "\n\n";
+    }
 }
