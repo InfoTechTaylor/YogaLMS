@@ -234,11 +234,11 @@ public class SimpleApp
                We select the rows and verify the results.
              */
             rs = s.executeQuery(
-                    "SELECT id, class_name FROM yoga_class ORDER BY id");
+                    "SELECT class_date, class_name FROM yoga_class ORDER BY class_date ASC");
 
-            System.out.println("SQL results for all yoga classes ordered by id: ");
+            System.out.println("SQL results for all yoga classes ordered by date: ");
             while(rs.next()) {
-                System.out.println("id: " + rs.getInt(1) + "\nclass name: " + rs.getString(2));
+                System.out.println("date: " + rs.getDate(1) + "\nclass name: " + rs.getString(2));
             }
 
             rs = s.executeQuery("SELECT yc.class_name, yc.teacher_name FROM yoga_class yc " +
